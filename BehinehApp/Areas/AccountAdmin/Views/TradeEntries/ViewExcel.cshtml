@@ -1,0 +1,127 @@
+﻿@model IEnumerable<DLLCore.Utility.Excel.CDSExcelFormat>
+
+@{
+    ViewBag.Title = "ViewExcel";
+}
+
+<h2>فهرست معاملات فایل در تاریخ @Model.Select(a=>a.PersianDate).FirstOrDefault().ToString()</h2>
+<br />
+
+<table class="table table-condensed table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CDSCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvestorCodeInCds)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersianDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TradeType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullNameOfStock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SymbolOfStock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TafsilCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsPrecedence)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsMarketMakerContrary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TradeVolume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TradePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TradeValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TradeTax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrokerFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FactorNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrokerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrokerCode)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CDSCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvestorCodeInCds)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersianDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TradeType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullNameOfStock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SymbolOfStock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TafsilCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsPrecedence)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsMarketMakerContrary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TradeVolume)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TradePrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TradeValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TradeTax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalFee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrokerFee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FactorNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrokerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrokerCode)
+        </td>
+    </tr>
+}
+
+</table>

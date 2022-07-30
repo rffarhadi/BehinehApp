@@ -1,0 +1,47 @@
+﻿@model DLLCore.DBContext.Entities.Accounting.RawAccounts.RawSubCategories
+
+@{
+    ViewBag.Title = "حذف";
+}
+
+<h2>حذف زیر گروه</h2>
+
+<h3>آیا از حذف این زیر گروه اطمینان دارید؟</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RawCategoriesInSub.RawCategoryCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RawCategoriesInSub.RawCategoryCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RawCategoriesInSub.RawCategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RawCategoriesInSub.RawCategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubCategoryName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-info" /> |
+            @Html.ActionLink("بازگشت به فهرست", "Index", null, new { @class = "btn btn-danger" })
+        </div>
+    }
+</div>

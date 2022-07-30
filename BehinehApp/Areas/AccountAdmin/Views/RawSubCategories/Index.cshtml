@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DLLCore.DBContext.Entities.Accounting.RawAccounts.RawSubCategories>
+
+@{
+    ViewBag.Title = "فهرست";
+}
+
+<h2>فهرست زیر گروه‌های حسابداری</h2>
+
+<p>
+    @Html.ActionLink("زیر گروه جدید", "Create",null, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            کد گروه
+        </th>
+        <th>
+            کد زیر گروه
+        </th>
+        <th>
+            نام گروه
+        </th>
+        <th>
+            نام زیر گروه
+        </th>
+        <th>عملیات</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.RawCategoriesInSub.RawCategoryCode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SubCategoryCode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RawCategoriesInSub.RawCategoryName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SubCategoryName)
+    </td>
+    <td>
+        @Html.ActionLink("ویرایش", "Edit", new { id = item.SubCategoryID }, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("جزئیات", "Details", new { id = item.SubCategoryID }, new { @class = "btn btn-info" }) |
+        @Html.ActionLink("حذف", "Delete", new { id = item.SubCategoryID }, new { @class = "btn btn-danger" })
+    </td>
+</tr>
+}
+
+</table>

@@ -1,0 +1,91 @@
+﻿@model IEnumerable<DLLCore.ViewModels.FinancialStatmentsViewModels.BalanceSheetViewModel>
+
+@{
+    ViewBag.Title = "ارزشیابی";
+}
+
+<h2>حساب ارزشیابی مانده اوراق به تفکیک سرمایه‌گذاران منتهی به @PersianDateTime.Now</h2>
+
+<p>@ViewBag.Message</p>
+<br />
+
+<div id="tableDiv">
+    <table class="table table-condensed table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.InvestorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InvestorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubCategoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DebitBalance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditBalance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VolumeBalance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalBalance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastDateOfUpdate)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvestorId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvestorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubCategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DebitBalance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreditBalance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VolumeBalance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalBalance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nature)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastDateOfUpdate)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+

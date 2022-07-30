@@ -1,0 +1,82 @@
+﻿@model DLLCore.DBContext.Entities.Accounting.RawAccounts.RawDetaile
+
+@{
+    ViewBag.Title = "حذف";
+}
+
+<h2>حذف حساب تفصیلی</h2>
+
+<h3>آیا از حذف این حساب اطمینان دارید؟</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rawSubLedger.SubLedgerCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rawSubLedger.SubLedgerCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DetaileCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DetaileCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.rawSubLedger.SubLedgerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rawSubLedger.SubLedgerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetaileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetaileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetaileSymbole)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetaileSymbole)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TafsilCodeInCDS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TafsilCodeInCDS)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPrecedence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsPrecedence)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsMarketMakerContrary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsMarketMakerContrary)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-info" /> |
+            @Html.ActionLink("بازگشت به فهرست", "Index", null, new { @class = "btn btn-danger" })
+        </div>
+    }
+</div>

@@ -1,0 +1,166 @@
+﻿@model IEnumerable<DLLCore.DBContext.Entities.Accounting.Entry.Journal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>ثبت خودکار اسناد خرید و فروش</h2>
+<hr />
+<div>
+    <div class="col-lg-6">
+        @using (Html.BeginForm("Importexcel", "TradeEntries", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" id="ExcelFileUpload" name="ExcelFileUpload" />
+            <input type="submit" id="Submit" name="Submit" value="ثبت معاملات" />
+        }
+    </div>
+</div>
+<hr />
+<div class="col-lg-12">
+    <h2>فهرست اسناد</h2>
+</div>
+
+<div class="col-lg-12" id="tableDiv">
+    <table class="table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    نام سرمایه‌گذار
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.rawDetaile.DetaileName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EntryNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EntryDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EntryDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EntryDebit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EntryCredit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EntryBuySellVolume)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TradePrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TradeType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FactorNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BrokerFee)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalFee)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TradeTax)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BrokerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BrokerCode)
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.investorProfileInJournal.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.rawDetaile.DetaileName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EntryNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EntryDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EntryDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EntryDebit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EntryCredit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EntryBuySellVolume)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TradePrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TradeType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FactorNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BrokerFee)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalFee)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TradeTax)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BrokerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BrokerCode)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<hr />
+<div>
+    <div class="col-lg-3">
+        @using (Html.BeginForm("Delete", "TradeEntries", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <h3>حذف اسناد در بین بازه زمانی:</h3>
+            <label> از تاریخ:</label>
+            <input type="text" name="fromDate" class="form-control text-box single-line" data-val="true" data-val-required="لطفاً تاریخ شروع را وارد کنید" id="fromDate" data-MdDateTimePicker="true" data-trigger="click" data-targetselector="#fromDate" data-groupid="group1" data-fromdate="true" data-enabletimepicker="true" data-placement="left" value="" />
+            <label> تا تاریخ:</label>
+            <input type="text" name="toDate" class="form-control text-box single-line" data-val="true" data-val-required="لطفاً تاریخ شروع را وارد کنید" id="toDate" data-MdDateTimePicker="true" data-trigger="click" data-targetselector="#toDate" data-groupid="group1" data-fromdate="true" data-enabletimepicker="true" data-placement="left" value="" />
+            <br />
+            <input type="submit" id="deleteSubmit" name="deleteSubmit" value="حذف سندها" />
+        }
+    </div>
+    <div class="col-lg-3">
+        @using (Html.BeginForm("Index", "TradeEntries", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <h3>نمایش اسناد در بین بازه زمانی:</h3>
+            <label> از تاریخ:</label>
+            <input type="text" name="DisplayfromDate" class="form-control text-box single-line" data-val="true" data-val-required="لطفاً تاریخ شروع را وارد کنید" id="DisplayfromDate" data-MdDateTimePicker="true" data-trigger="click" data-targetselector="#DisplayfromDate" data-groupid="group1" data-fromdate="true" data-enabletimepicker="true" data-placement="left" value="" />
+            <label> تا تاریخ:</label>
+            <input type="text" name="DisplaytoDate" class="form-control text-box single-line" data-val="true" data-val-required="لطفاً تاریخ شروع را وارد کنید" id="DisplaytoDate" data-MdDateTimePicker="true" data-trigger="click" data-targetselector="#DisplaytoDate" data-groupid="group1" data-fromdate="true" data-enabletimepicker="true" data-placement="left" value="" />
+            <br />
+            <input type="submit" id="DisplayBetweenSubmit" name="DisplayBetweenSubmit" value="نمایش" />
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

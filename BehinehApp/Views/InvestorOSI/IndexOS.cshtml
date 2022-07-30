@@ -1,0 +1,81 @@
+﻿@model IEnumerable<DLLCore.ViewModels.InvestorOSIProfileViewModel>
+
+@{
+    ViewBag.Title = "فهرست اهداف، و محدودیت‌ها";
+}
+<hr />
+<p>
+    @Html.ActionLink("تعریف هدف و محدودیت جدید", "CreateOS", null, new { @class = "btn btn-success" })
+</p>
+
+<h2>فهرست اهداف و محدودیت‌ها</h2>
+<table class="table table-hover">
+    <tr>
+        <th class="col-lg-1">
+            @Html.DisplayNameFor(m => m.InvestProfile.FirstName)
+        </th>
+        <th class="col-lg-1">
+            @Html.DisplayNameFor(m => m.InvestProfile.LastName)
+        </th>
+        <th class="col-lg-4">
+            @Html.DisplayNameFor(model => model.Objective)
+        </th>
+        <th class="col-lg-4">
+            @Html.DisplayNameFor(model => model.Subjective)
+        </th>
+        <th class="col-lg-2">عملیات</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="col-lg-1">
+                @Html.DisplayFor(modelItem => item.InvestProfile.FirstName)
+            </td>
+            <td class="col-lg-1">
+                @Html.DisplayFor(modelItem => item.InvestProfile.LastName)
+            </td>
+            <td class="col-lg-4">
+                @Html.DisplayFor(modelItem => item.Objective)
+            </td>
+            <td class="col-lg-4">
+                @Html.DisplayFor(modelItem => item.Subjective)
+            </td>
+            <td class="col-lg-2">
+                @Html.ActionLink("ویرایش", "EditOS", new { id = item.OsiID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("جزئیات", "DetailsOS", new { id = item.OsiID }, new { @class = "btn btn-info" })
+                @Html.ActionLink("حذف", "DeleteOS", new { id = item.OsiID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@{
+    if (ViewBag.Smessage != null)
+    {
+        <h1 id="message" style="color:green;font-size:medium">
+            @ViewBag.Smessage
+        </h1>
+    }
+    if (ViewBag.Emessage != null)
+    {
+        <h1 id="message" style="color:orangered;font-size:medium">
+            @ViewBag.Emessage
+        </h1>
+    }
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $("#message").fadeIn(6000);
+            $("#message").fadeOut(6000);
+        });
+    </script>
+}
+
+

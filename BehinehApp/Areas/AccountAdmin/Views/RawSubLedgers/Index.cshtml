@@ -1,0 +1,80 @@
+﻿@model IEnumerable<DLLCore.DBContext.Entities.Accounting.RawAccounts.RawSubLedger>
+
+@{
+    ViewBag.Title = "فهرست";
+}
+
+<h2>فهرست حساب‌های معین</h2>
+
+<p>
+    @Html.ActionLink("حساب معین جدید", "Create", null, new { @class = "btn btn-success" })
+</p>
+<div class="col-lg-12" id="tableDiv">
+    <table class="table table-hover">
+        <tr>
+            <th> عملیات</th>
+            <th>
+                کد گروه
+            </th>
+            <th>
+                کد زیر گروه
+            </th>
+            <th>
+                کد دفتر کل
+            </th>
+            <th>
+                کد حساب معین
+            </th>
+            <th>
+                نام گروه
+            </th>
+            <th>
+                نام زیر گروه
+            </th>
+            <th>
+                نام دفتر کل
+            </th>
+            <th>
+                نام حساب معین
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(" ", "Edit", new { id = item.SubLedgerID }, new { @class = "glyphicon glyphicon-edit" }) |
+                    @Html.ActionLink(" ", "Details", new { id = item.SubLedgerID }, new { @class = "glyphicon glyphicon-info-sign" }) |
+                    @Html.ActionLink(" ", "Delete", new { id = item.SubLedgerID }, new { @class = "glyphicon glyphicon-trash" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rawLedgers.RawSubCategories.RawCategoriesInSub.RawCategoryCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rawLedgers.RawSubCategories.SubCategoryCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rawLedgers.RawLedgerCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubLedgerCode)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.rawLedgers.RawSubCategories.RawCategoriesInSub.RawCategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rawLedgers.RawSubCategories.SubCategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rawLedgers.RawLedgerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubLedgerName)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+

@@ -1,0 +1,31 @@
+﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+
+@{
+    ViewBag.Title = "حذف نقش مدیر";
+}
+
+<h2>حذف نقش مدیر</h2>
+
+<h3>آیا از حذف نقش اطمینان دارید؟ </h3>
+<p>حذف این نقش، موجب حذف تمامی کاربران این نقش می‌شود، اما کاربران حذف نمی‌شوند.</p>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            نام
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-warning" /> |
+            @Html.ActionLink("بازگشت", "Index", null, new { @class = "btn btn-info" })
+        </div>
+    }
+</div>

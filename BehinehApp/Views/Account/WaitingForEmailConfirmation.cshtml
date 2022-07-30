@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "در انتظار تایید ایمیل";
+}
+
+<h2>تأیید ایمیل</h2>
+
+<p>@ViewBag.Message</p>
+
+<p>لطفاً ایمیل‌تان را کنترل نمایید و جهت تأیید نام کاربری خود، بر روی لینک ارسالی کلیک کنید</p>
+<p>
+    @Html.ActionLink("برای ارسال مجدد لینک فعالسازی، کلیک کنید", "ResendEmailActivationLink", "Account", new { userId=Model },null)
+    @*<a href="/Account/ResendEmailActivationLink?userId=@Model">برای ارسال مجدد لینک فعالسازی، کلیک کنید</a>*@
+</p>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DLLCore.DBContext.Entities.Accounting.RawAccounts.RawLedgers>
+
+@{
+    ViewBag.Title = "فهرست حساب‌های کل";
+}
+
+<h2>فهرست حساب‌های کل</h2>
+
+<p>
+    @Html.ActionLink("حساب کل جدید", "Create", null, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            کد گروه
+        </th>
+        <th>
+            کد زیر گروه
+        </th>
+        <th>
+            کد دفتر کل
+        </th>
+        <th>
+            نام گروه
+        </th>
+        <th>
+            نام زیر گروه
+        </th>
+        <th>
+            نام دفتر کل
+        </th>
+        <th>عملیات</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.RawSubCategories.RawCategoriesInSub.RawCategoryCode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RawSubCategories.SubCategoryCode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RawLedgerCode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RawSubCategories.RawCategoriesInSub.RawCategoryName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RawSubCategories.SubCategoryName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RawLedgerName)
+    </td>
+    <td>
+        @Html.ActionLink("ویرایش", "Edit", new { id = item.RawLedgerID }, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("جزئیات", "Details", new { id = item.RawLedgerID }, new { @class = "btn btn-info" }) |
+        @Html.ActionLink("حذف", "Delete", new { id = item.RawLedgerID }, new { @class = "btn btn-danger" })
+    </td>
+</tr>
+}
+
+</table>

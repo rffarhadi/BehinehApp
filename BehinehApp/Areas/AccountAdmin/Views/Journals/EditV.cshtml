@@ -1,0 +1,137 @@
+﻿@model DLLCore.ViewModels.NormalEntryListModelForViewModel
+
+@{
+    ViewBag.Title = "ویرایش";
+}
+
+<h2>ویرایش سند</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" onclick="conditionsCheck(event)" value="ویرایش" class="btn btn-success" />
+    <br />
+    <br />
+    <div id="tableDiv">
+        <table class="table table-bordered table-hover" id="myTable">
+            <thead>
+                <tr>
+                    <th>
+                        تاریخ معامله
+                    </th>
+                    <th>
+                        شرح سند
+                    </th>
+                    <th>
+                        بدهکار
+                    </th>
+                    <th>
+                        بستانکار
+                    </th>
+                    <th>
+                        حجم معامله
+                    </th>
+                    <th>
+                        قیمت
+                    </th>
+                    <th>
+                        مالیات
+                    </th>
+                    <th>
+                        کارمزد کل
+                    </th>
+                    <th>
+                        کارمزد کارگزار
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="Mytbody">
+                @{
+                    //To make unique Id
+                    int i = 0;
+                    foreach (var item in Model.NormalEntryViewListModel.ToList())
+                    {
+                        <tr id="Mytr">
+                            @Html.HiddenFor(m => m.NormalEntryViewListModel[i].InvestorID)
+                            @Html.HiddenFor(m => m.NormalEntryViewListModel[i].BrokerCode)
+                            @Html.HiddenFor(m => m.NormalEntryViewListModel[i].BrokerName)
+                            @Html.HiddenFor(m => m.NormalEntryViewListModel[i].FactorNumber)
+                            @Html.HiddenFor(m => m.NormalEntryViewListModel[i].EntryNo)
+                            @Html.HiddenFor(m => m.NormalEntryViewListModel[i].DetaileID)
+                            @Html.HiddenFor(m => m.NormalEntryViewListModel[i].TradeType)
+
+                            <td>
+                                @Html.EditorFor(m => m.NormalEntryViewListModel[i].EntryDate)
+                            </td>
+                            <td>
+                                @Html.EditorFor(m => m.NormalEntryViewListModel[i].EntryDescription)
+                            </td>
+                            <td>
+                                @Html.EditorFor(m => m.NormalEntryViewListModel[i].EntryDebit)
+                            </td>
+                            <td>
+                                @Html.EditorFor(m => m.NormalEntryViewListModel[i].EntryCredit)
+                            </td>
+                            <td>
+                                @Html.EditorFor(m => m.NormalEntryViewListModel[i].EntryBuySellVolume)
+                            </td>
+                            <td>
+                                @Html.EditorFor(m => m.NormalEntryViewListModel[i].TradePrice)
+                            </td>
+                            <td>
+                                @Html.EditorFor(m => m.NormalEntryViewListModel[i].TradeTax)
+                            </td>
+                            <td>
+                                @Html.EditorFor(m => m.NormalEntryViewListModel[i].TotalFee)
+                            </td>
+                            <td>
+                                @Html.EditorFor(m => m.NormalEntryViewListModel[i].BrokerFee)
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("بازگشت به فهرست اسناد", "Index", null, new { @class="btn btn-danger"})
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Scripts/numeral/numeral.min.js"></script>
+    <script>
+        function conditionsCheck(event) {
+            //debugger;
+            colnumber = document.getElementById('Mytr').childElementCount;
+            rownumber = document.getElementById('Mytbody').rows.length;
+            var debitSum = 0;
+            var creditSum = 0;
+            for (var i = 0; i < rownumber; i++) {
+                var debit = numeral(document.getElementById('Mytbody').rows[i].cells[2].children[0].value).value();
+                var crdit = numeral(document.getElementById('Mytbody').rows[i].cells[3].children[0].value).value();
+                debitSum += debit;
+                creditSum += crdit;
+                if (debit == crdit) {
+                    alert("مبالغ بدهکار و بستانکار هر سطر از سند نمی‌تواند یکسان باشد");
+                    event.preventDefault();
+                }
+                if (debit > 0 && crdit > 0) {
+                    alert("مبالغ بدهکار و بستانکار هر سطر از سند نمی‌تواند بزرگتر از صفر باشد");
+                    event.preventDefault();
+                }
+            }
+            if (debitSum != creditSum) {
+                alert("جمع ستون بدهکار و ستون بستانکار مساوی نمی‌باشد.");
+                event.preventDefault();
+            }
+
+        }
+
+    </script>
+}

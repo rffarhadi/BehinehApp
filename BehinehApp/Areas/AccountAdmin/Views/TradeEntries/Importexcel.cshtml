@@ -1,0 +1,120 @@
+﻿@model IEnumerable<DLLCore.DBContext.Entities.Accounting.Entry.Journal>
+
+@{
+    ViewBag.Title = "Importexcel";
+}
+
+<h2>فهرست اسناد</h2>
+
+<table class="table table-condensed table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.investorProfileInJournal.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rawDetaile.DetaileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntryNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntryGregorianDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntryDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntryDebit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntryCredit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntryBuySellVolume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TradePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TradeType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FactorNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrokerFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TradeTax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrokerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrokerCode)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.investorProfileInJournal.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rawDetaile.DetaileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntryNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntryGregorianDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntryDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntryDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntryDebit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntryCredit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EntryBuySellVolume)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TradePrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TradeType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FactorNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrokerFee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalFee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TradeTax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrokerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrokerCode)
+        </td>
+    </tr>
+}
+
+</table>

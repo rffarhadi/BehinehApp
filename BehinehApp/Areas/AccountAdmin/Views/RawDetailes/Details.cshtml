@@ -1,0 +1,67 @@
+﻿@model DLLCore.DBContext.Entities.Accounting.RawAccounts.RawDetaile
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+
+<h2>جزئیات حساب تفصیلی</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.rawSubLedger.SubLedgerCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rawSubLedger.SubLedgerCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DetaileCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetaileCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetaileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetaileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetaileSymbole)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DetaileSymbole)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TafsilCodeInCDS)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TafsilCodeInCDS)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPrecedence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsPrecedence)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsMarketMakerContrary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsMarketMakerContrary)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.DetaileID }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("بازگشت به فهرست", "Index", null, new { @class = "btn btn-danger" })
+</p>

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<DLLCore.ViewModels.FinancialStatmentsViewModels.PerformanceViewModel>
+
+@{
+    ViewBag.Title = "عملکرد";
+}
+<br />
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <div class="col-md-1">
+            <label> سرمایه‌گذار:</label>
+        </div>
+        <div class="col-md-4">
+            @Html.DropDownList("InvestorId", ViewBag.Investors as SelectList, "انتخاب سرمایه‌گذار", htmlAttributes: new { @class = "form-control", required = "required", @onchange = "submitform();" })
+        </div>
+        @*<button type="submit" class="form-group">دریافت</button>*@
+    </div>
+}
+<br />
+<hr />
+<h2>ارزیابی عملکرد منتهی به تاریخ @PersianDateTime.Now</h2>
+
+
+<div id="tableDiv">
+    <table class="table table-condensed table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.InvestorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InvestorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAsset)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPeofitOrLoss)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalReturn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersianDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GeorgianDate)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvestorId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvestorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAsset)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPeofitOrLoss)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalReturn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersianDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GeorgianDate)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+<script>
+    function submitform() {
+        $('form').submit();
+    }
+</script>

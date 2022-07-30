@@ -1,0 +1,82 @@
+﻿@model DLLCore.ViewModels.InvestorInfrencesConclutionViewModel
+
+@{
+    ViewBag.Title = "حذف";
+}
+
+<h2>حذف</h2>
+
+<h3>آیا از حذف این اهداف و محدودیت‌ها اطمینان دارید؟</h3>
+<div>
+    <h4>مشخصات سرمایه‌گذار</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InvestProfile.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvestProfile.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InvestProfile.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvestProfile.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Inference)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inference)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinalConclution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinalConclution)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-success" /> |
+            @Html.ActionLink("بازگشت به فهرست", "IndexIc", null, new { @class = "btn btn-danger" })
+        </div>
+    }
+</div>
+
+@{
+    if (ViewBag.Smessage != null)
+    {
+        <h1 id="message" style="color:green;font-size:medium">
+            @ViewBag.Smessage
+        </h1>
+    }
+    if (ViewBag.Emessage != null)
+    {
+        <h1 id="message" style="color:orangered;font-size:medium">
+            @ViewBag.Emessage
+        </h1>
+    }
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $("#message").fadeIn(6000);
+            $("#message").fadeOut(6000);
+        });
+    </script>
+}

@@ -1,0 +1,44 @@
+﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+
+<h2>جزئیات نقش</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            نام کاربر مدیر
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+</div>
+<h4>لیست کاربران این نقش</h4>
+@if (ViewBag.UserCount == 0)
+{
+    <hr />
+    <p>هیچ کاربری در این نقش یافت نشد</p>
+}
+
+<table class="table">
+
+    @foreach (var item in ViewBag.Users)
+    {
+        <tr>
+            <td>
+                @item.UserName
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.Id },new { @class = "btn btn-warning" }) |
+    @Html.ActionLink("بازگشت", "Index", null, new { @class = "btn btn-info" });
+</p>
+
+
+

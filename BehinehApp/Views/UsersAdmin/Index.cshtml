@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DLLCore.DBContext.ApplicationUser>
+
+@{
+    ViewBag.Title = "فهرست کاربران";
+}
+
+
+<p>
+    @Html.ActionLink("افزودن کاربر جدید", "Create",null, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.UserName)*@
+            نام کاربری:
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.ActionLink("ویرایش", "Edit", new { id = item.Id },new { @class="btn btn-success"}) |
+                @Html.ActionLink("جزئیات", "Details", new { id = item.Id }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("حذف", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

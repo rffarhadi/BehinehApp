@@ -1,0 +1,82 @@
+﻿@model IEnumerable<DLLCore.DBContext.Entities.Accounting.Entry.Journal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>فهرست اسناد</h2>
+
+<div>
+    @Html.ActionLink("سند جدید", "Create", null, new { @class = "btn btn-success" })
+</div>
+<br />
+<div id="tableDiv">
+    <table class="table table-hover">
+        <tr>
+            <th>عملیات</th>
+            <th>
+                نام سرمایه‌گذار
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rawDetaile.DetaileName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryDebit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryCredit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryBuySellVolume)
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(" ", "EditV", new { id = item.EntryNo }, new { @class = "glyphicon glyphicon-edit" }) |
+                    @Html.ActionLink(" ", "Details", new { id = item.EntryNo }, new { @class = "glyphicon glyphicon-info-sign" }) |
+                    @Html.ActionLink(" ", "Delete", new { id = item.EntryNo }, new { @class = "glyphicon glyphicon-trash" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.investorProfileInJournal.FirstName) <span> </span> @Html.DisplayFor(modelItem => item.investorProfileInJournal.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntryNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rawDetaile.DetaileName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntryDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntryDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntryDebit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntryCredit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntryBuySellVolume)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+

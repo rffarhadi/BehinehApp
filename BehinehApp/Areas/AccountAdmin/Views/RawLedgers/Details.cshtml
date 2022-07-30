@@ -1,0 +1,56 @@
+﻿@model DLLCore.DBContext.Entities.Accounting.RawAccounts.RawLedgers
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+
+<h2>جزئیات حساب کل</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            کد گروه حسابداری
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RawSubCategories.RawCategoriesInSub.RawCategoryCode)
+        </dd>
+        <dt>
+            کد زیر گروه حسابداری
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RawSubCategories.SubCategoryCode)
+        </dd>
+        <dt>
+            کد دفتر کل
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RawLedgerCode)
+        </dd>
+
+
+        <dt>
+            نام گروه حسابداری
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RawSubCategories.RawCategoriesInSub.RawCategoryName)
+        </dd>
+        <dt>
+            نام زیر گروه حسابداری
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RawSubCategories.SubCategoryName)
+        </dd>
+        <dt>
+            نام دفتر کل
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RawLedgerName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.RawLedgerID }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("بازگشت به فهرست", "Index", null, new { @class = "btn btn-danger" })
+</p>

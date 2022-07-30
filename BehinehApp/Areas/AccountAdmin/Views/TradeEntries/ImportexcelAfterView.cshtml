@@ -1,0 +1,139 @@
+﻿@model DLLCore.Utility.Excel.CDSExcelFormatDetail
+
+@{
+    ViewBag.Title = "Importexcel";
+}
+
+<h2>ثبت معاملات</h2>
+
+@using (Html.BeginForm("EntrisInsert", "TradeEntries", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="ثبت" class="btn btn-success" />
+
+    <table class="table table-condensed table-hover">
+        <tr>
+            <th>
+                کد سپرده‌گذار
+            </th>
+            <th>
+                کد سرمایه‌گذار
+            </th>
+            <th>
+                تاریخ
+            </th>
+            <th>
+                نوع معامله
+            </th>
+            <th>
+                نام شرکت
+            </th>
+            <th>
+                نماد
+            </th>
+            <th>
+                کد تفصیلی
+            </th>
+            <th>
+                حق تقدم؟
+            </th>
+            <th>
+                طرف بازارگردان؟
+            </th>
+            <th>
+                حجم معامله
+            </th>
+            <th>
+                قیمت
+            </th>
+            <th>
+                ارزش معامله
+            </th>
+            <th>
+                مالیات
+            </th>
+            <th>
+                کارمزد کل
+            </th>
+            <th>
+                کارمزد کارگزار
+            </th>
+            <th>
+                شماره اعلامیه
+            </th>
+            <th>
+                نام کارگزار
+            </th>
+            <th>
+                کد کارگزار
+            </th>
+        </tr>
+        @{
+            //To make unique Id
+            int i = 0;
+            foreach (var item in Model.CDSExcelFormatObject.ToList())
+            {
+                <tr>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].CDSCode, new { @id = "CDSCode_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].InvestorCodeInCds, new { @id = "InvestorCodeInCds_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].PersianDate, new { @id = "PersianDate_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].TradeType, new { @id = "TradeType_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].FullNameOfStock, new { @id = "FullNameOfStock_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].SymbolOfStock, new { @id = "SymbolOfStock_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].TafsilCode, new { @id = "TafsilCode_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].IsPrecedence, new { @id = "IsPrecedence_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].IsMarketMakerContrary, new { @id = "IsMarketMakerContrary_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].TradeVolume, new { @id = "TradeVolume_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].TradePrice, new { @id = "TradePrice_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].TradeValue, new { @id = "TradeValue_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].TradeTax, new { @id = "TradeTax_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].TotalFee, new { @id = "TotalFee_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].BrokerFee, new { @id = "BrokerFee_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].FactorNumber, new { @id = "FactorNumber_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].BrokerName, new { @id = "BrokerName_" + i })
+                    </td>
+                    <td>
+                        @Html.EditorFor(m => m.CDSExcelFormatObject[i].BrokerCode, new { @id = "BrokerCode_" + i })
+                    </td>
+                </tr>
+                i++;
+            }
+        }
+
+    </table>
+}
+
+

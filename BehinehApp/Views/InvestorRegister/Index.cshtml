@@ -1,0 +1,110 @@
+﻿@model IEnumerable<DLLCore.ViewModels.InvestorProfileViewModel>
+
+@{
+    ViewBag.Title = "فهرست مشتریان سبدگردان";
+}
+
+<h2>فهرست سرمایه‌گذاری</h2>
+@Html.AntiForgeryToken()
+
+<p>
+    @Html.ActionLink("ثبت مشتری جدید", "RegisterInvestor", null, new { @class = "btn btn-success" })
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NationalCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BourseCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InvestorCodeInCDS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InitialEquity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExperiencByMonth)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NationalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BourseCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvestorCodeInCDS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InitialEquity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExperiencByMonth)
+            </td>
+            <td>
+                @Html.ActionLink("ویرایش", "EditInvestorProfile", new { id = item.InvestorID }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("جزئیات", "InvestorDetails", new { id = item.InvestorID }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("حذف", "Delete", new { id = item.InvestorID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@{
+    if (ViewBag.Smessage != null)
+    {
+        <h1 id="message" style="color:green;font-size:medium">
+            @ViewBag.Smessage
+        </h1>
+    }
+    if (ViewBag.Emessage != null)
+    {
+        <h1 id="message" style="color:orangered;font-size:medium">
+            @ViewBag.Emessage
+        </h1>
+    }
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $("#message").fadeIn(6000);
+            $("#message").fadeOut(6000);
+        });
+    </script>
+}

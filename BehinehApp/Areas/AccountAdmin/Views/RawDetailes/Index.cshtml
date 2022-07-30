@@ -1,0 +1,92 @@
+﻿@model IEnumerable<DLLCore.DBContext.Entities.Accounting.RawAccounts.RawDetaile>
+
+@{
+    ViewBag.Title = "فهرست";
+}
+
+<h2>فهرست حساب‌‌های تفصیلی</h2>
+
+<p>
+    @Html.ActionLink("ایجاد حساب جدید", "Create", null, new { @class = "btn btn-success" })
+</p>
+
+<div id="tableDiv">
+    <table class="table">
+        <tr>
+            <th>عملیات</th>
+            <th>
+                @Html.DisplayNameFor(model => model.rawSubLedger.SubLedgerCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DetaileCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rawSubLedger.SubLedgerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DetaileName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DetaileSymbole)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TafsilCodeInCDS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsPrecedence)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsMarketMakerContrary)
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.ActionLink(" ", "Edit", new { id = item.DetaileID }, new { @class = "glyphicon glyphicon-edit" }) |
+            @Html.ActionLink(" ", "Details", new { id = item.DetaileID }, new { @class = "glyphicon glyphicon-info-sign" }) |
+            @Html.ActionLink(" ", "Delete", new { id = item.DetaileID }, new { @class = "glyphicon glyphicon-trash" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rawSubLedger.SubLedgerCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DetaileCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rawSubLedger.SubLedgerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DetaileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DetaileSymbole)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TafsilCodeInCDS)
+        </td>
+
+        @if (item.IsPrecedence == true)
+        {
+            <td>بلی</td>
+        }
+        else
+        {
+            <td>خیر</td>
+        }
+
+        @if (item.IsMarketMakerContrary == true)
+        {
+            <td>بلی</td>
+        }
+        else
+        {
+            <td>خیر</td>
+        }
+    </tr>
+        }
+
+    </table>
+</div>

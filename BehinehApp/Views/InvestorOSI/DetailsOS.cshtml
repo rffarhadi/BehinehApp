@@ -1,0 +1,52 @@
+﻿@model DLLCore.ViewModels.InvestorOSIProfileViewModel
+
+@{
+    ViewBag.Title = "جزئیات اهداف و محدودیت‌ها";
+}
+
+<h2>جزئیات اهداف و محدودیت‌ها</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InvestProfile.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvestProfile.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InvestProfile.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvestProfile.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InvestProfile.NationalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvestProfile.NationalCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Objective)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Objective)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subjective)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subjective)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("بازگشت به فهرست", "IndexOS",null, new { @class = "btn btn-danger" })
+</p>

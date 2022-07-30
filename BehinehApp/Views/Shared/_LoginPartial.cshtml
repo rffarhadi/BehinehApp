@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-left" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                @Html.ActionLink("سلام " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">خروج</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-left">
+        <li>@Html.ActionLink("ثبت نام", "Register", "Account", new { area = "" }, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("ورود", "Login", "Account", new { area = "" }, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}
+
+@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+{
+<ul class="nav navbar-nav navbar-left">
+    <li class="custom-link"> @Html.ActionLink("مدیریت نقش‌ها", "Index", "RolesAdmin", new { area = "" }, null)</li>
+    <li class="custom-link"> @Html.ActionLink("مدیریت کاربران", "Index", "UsersAdmin", new { area = "" }, null)</li>
+
+</ul>
+}

@@ -1,0 +1,165 @@
+﻿@model DLLCore.ViewModels.NormalEntryViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>ثبت سند</h2>
+<div>
+    <button onclick="addRow()">جدید</button>
+    <button onclick="myDeleteFunction()">حذف</button>
+</div>
+<hr />
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <div class="col-lg-3">
+            <div>
+                <input type="submit" onclick="Equlity(event)" value="ثبت سند" class="btn btn-success" />
+            </div>
+            <br />
+            <div>
+                @Html.LabelFor(model => model.EntryDate)
+                <input type="text" name="EntryDate" class="form-control text-box single-line" data-val="true" data-val-required="لطفاً تاریخ سند را وارد کنید" id="EntryDate" data-MdDateTimePicker="true" data-trigger="click" data-targetselector="#EntryDate" data-groupid="group1" data-fromdate="true" data-enabletimepicker="true" data-placement="left" value="" />
+                @Html.ValidationMessageFor(model => model.EntryDate, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                <label>نام و کد بورسی سرمایه‌گذار</label>
+                @Html.DropDownList("InvestorID", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <br />
+            <div>
+                @Html.ActionLink("بازگشت به اسناد", "Index", null, new { @class = "btn btn-danger" })
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <table id="myTable">
+                <thead>
+                    <tr>
+                        <th class="col-lg-3">
+                            نام حساب
+                        </th>
+                        <th class="col-lg-4">
+                            شرح سند
+                        </th>
+                        <th class="col-lg-2">
+                            بدهکار
+                        </th>
+                        <th class="col-lg-2">
+                            بستانکار
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="Mytbody">
+                    <tr id="Mytr">
+                        <td class="col-lg-3">
+                            @Html.DropDownList("DetaileID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.DetaileID, "", new { @class = "text-danger" })
+                        </td>
+                        <td class="col-lg-4">
+                            <textarea name="EntryDescription" id="EntryDescription" rows="2" cols="40"> </textarea>
+                        </td>
+                        <td class="col-lg-2">
+                            <input type="text"  onkeyup="changeNum()" id="EntryDebit" name="EntryDebit" data-a-sign="" data-a-dec="." data-a-sep="," data-m-dec="0">
+
+                        </td>
+                        <td class="col-lg-2">
+                            <input type="text"  onkeyup="changeNum()" id="EntryCredit" name="EntryCredit" data-a-sign="" data-a-dec="." data-a-sep=","  data-m-dec="0" >
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+
+<hr />
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/autoNumeric/autoNumeric-min.js"></script>
+    <script src="~/Scripts/numeral/numeral.min.js"></script>
+    <script>
+        function changeNum() {
+            jQuery(function ($) {
+                $('#EntryDebit').autoNumeric('init');
+                $('#EntryDebit12').autoNumeric('init');
+                $('#EntryDebit22').autoNumeric('init');
+                $('#EntryDebit32').autoNumeric('init');
+                $('#EntryDebit42').autoNumeric('init');
+                $('#EntryDebit52').autoNumeric('init');
+                $('#EntryDebit62').autoNumeric('init');
+                $('#EntryDebit72').autoNumeric('init');
+                $('#EntryCredit').autoNumeric('init');
+                $('#EntryCredit13').autoNumeric('init');
+                $('#EntryCredit23').autoNumeric('init');
+                $('#EntryCredit33').autoNumeric('init');
+                $('#EntryCredit43').autoNumeric('init');
+                $('#EntryCredit53').autoNumeric('init');
+                $('#EntryCredit63').autoNumeric('init');
+                $('#EntryCredit73').autoNumeric('init');
+            });
+        };
+
+        function addRow() {
+            //debugger;
+            var colnumber = document.getElementById('Mytr').childElementCount;
+            var rownumber = document.getElementById('Mytbody').rows.length;
+            var tbodyElement = document.getElementById('Mytbody').insertRow(rownumber);
+            var tableRowContent = document.getElementById('Mytr').innerHTML;
+            tbodyElement.innerHTML = tableRowContent;
+
+            colnumber = document.getElementById('Mytr').childElementCount;
+            rownumber = document.getElementById('Mytbody').rows.length;
+            for (var i = 1; i < rownumber; i++) {
+                for (var j = 0; j < colnumber; j++) {
+                    var rowoneId = document.getElementById('Mytbody').rows[0].cells[j].children[0].id;
+                    var rowoneName = document.getElementById('Mytbody').rows[0].cells[j].children[0].name;
+                    document.getElementById('Mytbody').rows[i].cells[j].children[0].id = rowoneId + i + j;
+                    document.getElementById('Mytbody').rows[i].cells[j].children[0].name = rowoneName + i + j;
+                }
+            }
+
+        }
+
+        function myDeleteFunction() {
+            var rownumber = document.getElementById('Mytbody').rows.length;
+            if (rownumber > 1) {
+                document.getElementById("Mytbody").deleteRow(rownumber - 1);
+            }
+        };
+
+        function Equlity(event) {
+            //debugger;
+            colnumber = document.getElementById('Mytr').childElementCount;
+            rownumber = document.getElementById('Mytbody').rows.length;
+            var debitSum = 0;
+            var creditSum = 0;
+            for (var i = 0; i < rownumber; i++) {
+                var debit = numeral(document.getElementById('Mytbody').rows[i].cells[2].children[0].value).value();
+                var crdit = numeral(document.getElementById('Mytbody').rows[i].cells[3].children[0].value).value();
+                debitSum += debit;
+                creditSum += crdit;
+                if (debit == crdit) {
+                    alert("مبالغ بدهکار و بستانکار هر سطر از سند نمی‌تواند یکسان باشد");
+                    event.preventDefault();
+                }
+                if (debit > 0 && crdit > 0) {
+                    alert("مبالغ بدهکار و بستانکار هر سطر از سند نمی‌تواند بزرگتر از صفر باشد");
+                    event.preventDefault();
+                }
+            }
+            if (debitSum != creditSum) {
+                alert("جمع ستون بدهکار و ستون بستانکار مساوی نمی‌باشد.");
+                event.preventDefault();
+            }
+        }
+
+    </script>
+}
+

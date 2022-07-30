@@ -1,0 +1,52 @@
+﻿@model DLLCore.ViewModels.InvestorInfrencesConclutionViewModel
+
+@{
+    ViewBag.Title = "جزئیات استنباط‌هاو نتیجه‌گیری‌ها";
+}
+
+<h2>جزئیات استنباط‌ها و نتیجه‌گیری‌ها درباره سرمایه‌گذار</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InvestProfile.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvestProfile.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InvestProfile.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvestProfile.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InvestProfile.NationalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvestProfile.NationalCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Inference)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inference)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinalConclution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinalConclution)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("بازگشت به فهرست", "IndexIc",null, new { @class = "btn btn-danger" })
+</p>

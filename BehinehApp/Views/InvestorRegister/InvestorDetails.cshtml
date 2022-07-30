@@ -1,0 +1,178 @@
+﻿@model DLLCore.ViewModels.InvestorProfileViewModel
+
+@{
+    ViewBag.Title = "InvestorDetails";
+}
+
+
+<h2>اطلاعات سرمایه‌گذار</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FatherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegisterDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegisterDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NationalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NationalCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BourseCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BourseCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InvestorCodeInCDS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvestorCodeInCDS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthCertificateID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthCertificateID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobileNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InitialEquity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InitialEquity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExperiencByMonth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExperiencByMonth)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "EditInvestorProfile", new { id = Model.InvestorID }, new { @class = "btn btn-primary" })|
+    @Html.ActionLink("بازگشت به فهرست", "Index", null, new { @class = "btn btn-danger" })
+</p>
+
+@{
+    if (ViewBag.Smessage != null)
+    {
+        <h1 id="message" style="color:green;font-size:medium">
+            @ViewBag.Smessage
+        </h1>
+    }
+    if (ViewBag.Emessage != null)
+    {
+        <h1 id="message" style="color:orangered;font-size:medium">
+            @ViewBag.Emessage
+        </h1>
+    }
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $("#message").fadeIn(6000);
+            $("#message").fadeOut(6000);
+        });
+    </script>
+}

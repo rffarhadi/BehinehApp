@@ -1,0 +1,83 @@
+﻿@model IEnumerable<DLLCore.DBContext.Entities.StockHistoy.SecurityHistory>
+
+@{
+    ViewBag.Title = "فهرست";
+}
+
+
+<br />
+
+
+<form method="post">
+    <input type="submit" value="به‌روزرسانی" />
+</form>
+
+
+<br />
+<h2>فهرست آخرین قیمت‌ها</h2>
+
+<div id="tableDiv">
+    <table class="table table-condensed table-hover">
+        <tr>
+            <th>
+                ردیف
+            </th>
+            <th>
+                کد
+            </th>
+            <th>
+                کد تفصیل
+            </th>
+            <th>
+                نماد بورسی
+            </th>
+            <th>
+                نام شرکت
+            </th>
+            <th>
+                آخرین قیمت
+            </th>
+            <th>
+                آخرین تاریخ
+            </th>
+            <th>
+                تاریخ شمسی
+            </th>
+        </tr>
+       
+        @{ 
+            int i = 1;
+        }
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @i
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TafsilCodeInCds)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BourseSymbol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TradeDateGre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TradeDate)
+        </td>
+    </tr>
+            i++;
+        }
+
+    </table>
+</div>

@@ -1,0 +1,30 @@
+﻿@model DLLCore.DBContext.Entities.Accounting.RawAccounts.RawCategories
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+
+<h2>جزئیات گروه</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RawCategoryCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RawCategoryCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RawCategoryName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RawCategoryName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.RawCategoryID }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("بازگشت به فهرست", "Index",null, new { @class = "btn btn-danger" })
+</p>

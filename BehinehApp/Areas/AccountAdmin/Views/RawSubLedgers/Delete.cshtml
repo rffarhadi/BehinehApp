@@ -1,0 +1,47 @@
+﻿@model DLLCore.DBContext.Entities.Accounting.RawAccounts.RawSubLedger
+
+@{
+    ViewBag.Title = "حذف";
+}
+
+<h3>آیا از حذف این حساب معین اطمینان دارید؟</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.rawLedgers.RawLedgerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rawLedgers.RawLedgerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubLedgerCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubLedgerCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubLedgerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubLedgerName)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("بازگشت به فهرست", "Index", null, new { @class = "btn btn-danger" })
+        </div>
+    }
+</div>

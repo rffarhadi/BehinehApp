@@ -1,0 +1,45 @@
+﻿@model DLLCore.DBContext.ApplicationUser
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+
+
+<div>
+    <h4>کاربر</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.UserName)*@
+            نام کاربری:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+    </dl>
+</div>
+<h4>فهرست نقش‌های کاربر</h4>
+@if (ViewBag.RoleNames.Count == 0)
+{
+    <hr />
+    <p>هیچ نقشی برای این کاربر تعریف نشده است</p>
+}
+
+<table class="table">
+
+    @foreach (var item in ViewBag.RoleNames)
+    {
+        <tr>
+            <td>
+                @item
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.Id }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("بازگشت به فهرست", "Index",null, new { @class = "btn btn-danger" })
+</p>
+
+
+

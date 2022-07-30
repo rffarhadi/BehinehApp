@@ -1,0 +1,1052 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{95FFB410-7EF7-4406-AA7F-559995815F02}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BehinehApp</RootNamespace>
+    <AssemblyName>BehinehApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44347</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accord, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.3.8.0\lib\net462\Accord.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.IO, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.IO.3.8.0\lib\net462\Accord.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PersianDateTime, Version=1.1.5082.36395, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PersianDateTime.1.1.5082.36395\lib\net40\PersianDateTime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\AccountAdmin\AccountAdminAreaRegistration.cs" />
+    <Compile Include="Areas\AccountAdmin\Controllers\JournalsController.cs" />
+    <Compile Include="Areas\AccountAdmin\Controllers\RawCategoriesController.cs" />
+    <Compile Include="Areas\AccountAdmin\Controllers\RawDetailesController.cs" />
+    <Compile Include="Areas\AccountAdmin\Controllers\RawLedgersController.cs" />
+    <Compile Include="Areas\AccountAdmin\Controllers\RawSubCategoriesController.cs" />
+    <Compile Include="Areas\AccountAdmin\Controllers\RawSubLedgersController.cs" />
+    <Compile Include="Areas\AccountAdmin\Controllers\ReportsController.cs" />
+    <Compile Include="Areas\AccountAdmin\Controllers\TradeEntriesController.cs" />
+    <Compile Include="Areas\SecurityHistory\Controllers\CrudeController.cs" />
+    <Compile Include="Areas\SecurityHistory\SecurityHistoryAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvestorOSIController.cs" />
+    <Compile Include="Controllers\InvestorRegisterController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RolesAdminController.cs" />
+    <Compile Include="Controllers\UserAdminController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ContentRtl\css\font-awesome\css\font-awesome.css" />
+    <Content Include="ContentRtl\css\font-awesome\css\font-awesome.min.css" />
+    <Content Include="ContentRtl\css\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="ContentRtl\css\owl.carousel.css" />
+    <Content Include="ContentRtl\css\owl.transitions.css" />
+    <Content Include="ContentRtl\css\responsive-rtl.css" />
+    <Content Include="ContentRtl\css\responsive.css" />
+    <Content Include="ContentRtl\css\stylesheet-rtl.css" />
+    <Content Include="ContentRtl\css\stylesheet-skin2.css" />
+    <Content Include="ContentRtl\css\stylesheet-skin3.css" />
+    <Content Include="ContentRtl\css\stylesheet-skin4.css" />
+    <Content Include="ContentRtl\css\stylesheet.css" />
+    <Content Include="ContentRtl\image\banner\cms-block.jpg" />
+    <Content Include="ContentRtl\image\banner\responsive.jpg" />
+    <Content Include="ContentRtl\image\banner\sample-banner-1-400x200.jpg" />
+    <Content Include="ContentRtl\image\banner\sample-banner-2-400x200.jpg" />
+    <Content Include="ContentRtl\image\banner\sample-banner-3-400x200.jpg" />
+    <Content Include="ContentRtl\image\banner\sample-banner-4-400x150.jpg" />
+    <Content Include="ContentRtl\image\banner\sample-banner-5-400x150.jpg" />
+    <Content Include="ContentRtl\image\banner\small-banner-265x350.jpg" />
+    <Content Include="ContentRtl\image\banner\small-banner1-265x350.jpg" />
+    <Content Include="ContentRtl\image\bullet-dark-rtl.png" />
+    <Content Include="ContentRtl\image\bullet-dark.png" />
+    <Content Include="ContentRtl\image\favicon.png" />
+    <Content Include="ContentRtl\image\flags\ad.png" />
+    <Content Include="ContentRtl\image\flags\ae.png" />
+    <Content Include="ContentRtl\image\flags\af.png" />
+    <Content Include="ContentRtl\image\flags\ag.png" />
+    <Content Include="ContentRtl\image\flags\ai.png" />
+    <Content Include="ContentRtl\image\flags\al.png" />
+    <Content Include="ContentRtl\image\flags\am.png" />
+    <Content Include="ContentRtl\image\flags\an.png" />
+    <Content Include="ContentRtl\image\flags\ao.png" />
+    <Content Include="ContentRtl\image\flags\ar.png" />
+    <Content Include="ContentRtl\image\flags\as.png" />
+    <Content Include="ContentRtl\image\flags\at.png" />
+    <Content Include="ContentRtl\image\flags\au.png" />
+    <Content Include="ContentRtl\image\flags\aw.png" />
+    <Content Include="ContentRtl\image\flags\ax.png" />
+    <Content Include="ContentRtl\image\flags\az.png" />
+    <Content Include="ContentRtl\image\flags\ba.png" />
+    <Content Include="ContentRtl\image\flags\bb.png" />
+    <Content Include="ContentRtl\image\flags\bd.png" />
+    <Content Include="ContentRtl\image\flags\be.png" />
+    <Content Include="ContentRtl\image\flags\bf.png" />
+    <Content Include="ContentRtl\image\flags\bg.png" />
+    <Content Include="ContentRtl\image\flags\bh.png" />
+    <Content Include="ContentRtl\image\flags\bi.png" />
+    <Content Include="ContentRtl\image\flags\bj.png" />
+    <Content Include="ContentRtl\image\flags\bm.png" />
+    <Content Include="ContentRtl\image\flags\bn.png" />
+    <Content Include="ContentRtl\image\flags\bo.png" />
+    <Content Include="ContentRtl\image\flags\br.png" />
+    <Content Include="ContentRtl\image\flags\bs.png" />
+    <Content Include="ContentRtl\image\flags\bt.png" />
+    <Content Include="ContentRtl\image\flags\bv.png" />
+    <Content Include="ContentRtl\image\flags\bw.png" />
+    <Content Include="ContentRtl\image\flags\by.png" />
+    <Content Include="ContentRtl\image\flags\bz.png" />
+    <Content Include="ContentRtl\image\flags\ca.png" />
+    <Content Include="ContentRtl\image\flags\cc.png" />
+    <Content Include="ContentRtl\image\flags\cd.png" />
+    <Content Include="ContentRtl\image\flags\cf.png" />
+    <Content Include="ContentRtl\image\flags\cg.png" />
+    <Content Include="ContentRtl\image\flags\ch.png" />
+    <Content Include="ContentRtl\image\flags\ci.png" />
+    <Content Include="ContentRtl\image\flags\ck.png" />
+    <Content Include="ContentRtl\image\flags\cl.png" />
+    <Content Include="ContentRtl\image\flags\cm.png" />
+    <Content Include="ContentRtl\image\flags\cn.png" />
+    <Content Include="ContentRtl\image\flags\co.png" />
+    <Content Include="ContentRtl\image\flags\cr.png" />
+    <Content Include="ContentRtl\image\flags\cs.png" />
+    <Content Include="ContentRtl\image\flags\cu.png" />
+    <Content Include="ContentRtl\image\flags\cv.png" />
+    <Content Include="ContentRtl\image\flags\cx.png" />
+    <Content Include="ContentRtl\image\flags\cy.png" />
+    <Content Include="ContentRtl\image\flags\cz.png" />
+    <Content Include="ContentRtl\image\flags\de.png" />
+    <Content Include="ContentRtl\image\flags\dj.png" />
+    <Content Include="ContentRtl\image\flags\dk.png" />
+    <Content Include="ContentRtl\image\flags\dm.png" />
+    <Content Include="ContentRtl\image\flags\do.png" />
+    <Content Include="ContentRtl\image\flags\dz.png" />
+    <Content Include="ContentRtl\image\flags\ec.png" />
+    <Content Include="ContentRtl\image\flags\ee.png" />
+    <Content Include="ContentRtl\image\flags\eg.png" />
+    <Content Include="ContentRtl\image\flags\eh.png" />
+    <Content Include="ContentRtl\image\flags\england.png" />
+    <Content Include="ContentRtl\image\flags\er.png" />
+    <Content Include="ContentRtl\image\flags\es.png" />
+    <Content Include="ContentRtl\image\flags\et.png" />
+    <Content Include="ContentRtl\image\flags\fam.png" />
+    <Content Include="ContentRtl\image\flags\fi.png" />
+    <Content Include="ContentRtl\image\flags\fj.png" />
+    <Content Include="ContentRtl\image\flags\fk.png" />
+    <Content Include="ContentRtl\image\flags\fm.png" />
+    <Content Include="ContentRtl\image\flags\fo.png" />
+    <Content Include="ContentRtl\image\flags\fr.png" />
+    <Content Include="ContentRtl\image\flags\ga.png" />
+    <Content Include="ContentRtl\image\flags\gb.png" />
+    <Content Include="ContentRtl\image\flags\gd.png" />
+    <Content Include="ContentRtl\image\flags\ge.png" />
+    <Content Include="ContentRtl\image\flags\gh.png" />
+    <Content Include="ContentRtl\image\flags\gi.png" />
+    <Content Include="ContentRtl\image\flags\gl.png" />
+    <Content Include="ContentRtl\image\flags\gm.png" />
+    <Content Include="ContentRtl\image\flags\gn.png" />
+    <Content Include="ContentRtl\image\flags\gp.png" />
+    <Content Include="ContentRtl\image\flags\gq.png" />
+    <Content Include="ContentRtl\image\flags\gr.png" />
+    <Content Include="ContentRtl\image\flags\gs.png" />
+    <Content Include="ContentRtl\image\flags\gt.png" />
+    <Content Include="ContentRtl\image\flags\gu.png" />
+    <Content Include="ContentRtl\image\flags\gw.png" />
+    <Content Include="ContentRtl\image\flags\gy.png" />
+    <Content Include="ContentRtl\image\flags\hk.png" />
+    <Content Include="ContentRtl\image\flags\hn.png" />
+    <Content Include="ContentRtl\image\flags\hr.png" />
+    <Content Include="ContentRtl\image\flags\ht.png" />
+    <Content Include="ContentRtl\image\flags\hu.png" />
+    <Content Include="ContentRtl\image\flags\id.png" />
+    <Content Include="ContentRtl\image\flags\ie.png" />
+    <Content Include="ContentRtl\image\flags\il.png" />
+    <Content Include="ContentRtl\image\flags\in.png" />
+    <Content Include="ContentRtl\image\flags\io.png" />
+    <Content Include="ContentRtl\image\flags\iq.png" />
+    <Content Include="ContentRtl\image\flags\ir.png" />
+    <Content Include="ContentRtl\image\flags\is.png" />
+    <Content Include="ContentRtl\image\flags\it.png" />
+    <Content Include="ContentRtl\image\flags\jm.png" />
+    <Content Include="ContentRtl\image\flags\jo.png" />
+    <Content Include="ContentRtl\image\flags\jp.png" />
+    <Content Include="ContentRtl\image\flags\ke.png" />
+    <Content Include="ContentRtl\image\flags\kg.png" />
+    <Content Include="ContentRtl\image\flags\kh.png" />
+    <Content Include="ContentRtl\image\flags\ki.png" />
+    <Content Include="ContentRtl\image\flags\km.png" />
+    <Content Include="ContentRtl\image\flags\kn.png" />
+    <Content Include="ContentRtl\image\flags\kp.png" />
+    <Content Include="ContentRtl\image\flags\kr.png" />
+    <Content Include="ContentRtl\image\flags\kw.png" />
+    <Content Include="ContentRtl\image\flags\ky.png" />
+    <Content Include="ContentRtl\image\flags\kz.png" />
+    <Content Include="ContentRtl\image\flags\la.png" />
+    <Content Include="ContentRtl\image\flags\lb.png" />
+    <Content Include="ContentRtl\image\flags\lc.png" />
+    <Content Include="ContentRtl\image\flags\li.png" />
+    <Content Include="ContentRtl\image\flags\lk.png" />
+    <Content Include="ContentRtl\image\flags\lr.png" />
+    <Content Include="ContentRtl\image\flags\ls.png" />
+    <Content Include="ContentRtl\image\flags\lt.png" />
+    <Content Include="ContentRtl\image\flags\lu.png" />
+    <Content Include="ContentRtl\image\flags\lv.png" />
+    <Content Include="ContentRtl\image\flags\ly.png" />
+    <Content Include="ContentRtl\image\flags\ma.png" />
+    <Content Include="ContentRtl\image\flags\mc.png" />
+    <Content Include="ContentRtl\image\flags\md.png" />
+    <Content Include="ContentRtl\image\flags\mg.png" />
+    <Content Include="ContentRtl\image\flags\mh.png" />
+    <Content Include="ContentRtl\image\flags\mk.png" />
+    <Content Include="ContentRtl\image\flags\ml.png" />
+    <Content Include="ContentRtl\image\flags\mm.png" />
+    <Content Include="ContentRtl\image\flags\mn.png" />
+    <Content Include="ContentRtl\image\flags\mo.png" />
+    <Content Include="ContentRtl\image\flags\mp.png" />
+    <Content Include="ContentRtl\image\flags\mq.png" />
+    <Content Include="ContentRtl\image\flags\mr.png" />
+    <Content Include="ContentRtl\image\flags\ms.png" />
+    <Content Include="ContentRtl\image\flags\mt.png" />
+    <Content Include="ContentRtl\image\flags\mu.png" />
+    <Content Include="ContentRtl\image\flags\mv.png" />
+    <Content Include="ContentRtl\image\flags\mw.png" />
+    <Content Include="ContentRtl\image\flags\mx.png" />
+    <Content Include="ContentRtl\image\flags\my.png" />
+    <Content Include="ContentRtl\image\flags\mz.png" />
+    <Content Include="ContentRtl\image\flags\na.png" />
+    <Content Include="ContentRtl\image\flags\nc.png" />
+    <Content Include="ContentRtl\image\flags\ne.png" />
+    <Content Include="ContentRtl\image\flags\nf.png" />
+    <Content Include="ContentRtl\image\flags\ng.png" />
+    <Content Include="ContentRtl\image\flags\ni.png" />
+    <Content Include="ContentRtl\image\flags\nl.png" />
+    <Content Include="ContentRtl\image\flags\no.png" />
+    <Content Include="ContentRtl\image\flags\np.png" />
+    <Content Include="ContentRtl\image\flags\nr.png" />
+    <Content Include="ContentRtl\image\flags\nu.png" />
+    <Content Include="ContentRtl\image\flags\nz.png" />
+    <Content Include="ContentRtl\image\flags\om.png" />
+    <Content Include="ContentRtl\image\flags\pa.png" />
+    <Content Include="ContentRtl\image\flags\pe.png" />
+    <Content Include="ContentRtl\image\flags\pf.png" />
+    <Content Include="ContentRtl\image\flags\pg.png" />
+    <Content Include="ContentRtl\image\flags\ph.png" />
+    <Content Include="ContentRtl\image\flags\pk.png" />
+    <Content Include="ContentRtl\image\flags\pl.png" />
+    <Content Include="ContentRtl\image\flags\pm.png" />
+    <Content Include="ContentRtl\image\flags\pn.png" />
+    <Content Include="ContentRtl\image\flags\pr.png" />
+    <Content Include="ContentRtl\image\flags\ps.png" />
+    <Content Include="ContentRtl\image\flags\pt.png" />
+    <Content Include="ContentRtl\image\flags\pw.png" />
+    <Content Include="ContentRtl\image\flags\py.png" />
+    <Content Include="ContentRtl\image\flags\qa.png" />
+    <Content Include="ContentRtl\image\flags\ro.png" />
+    <Content Include="ContentRtl\image\flags\ru.png" />
+    <Content Include="ContentRtl\image\flags\rw.png" />
+    <Content Include="ContentRtl\image\flags\sa.png" />
+    <Content Include="ContentRtl\image\flags\sb.png" />
+    <Content Include="ContentRtl\image\flags\sc.png" />
+    <Content Include="ContentRtl\image\flags\scotland.png" />
+    <Content Include="ContentRtl\image\flags\sd.png" />
+    <Content Include="ContentRtl\image\flags\se.png" />
+    <Content Include="ContentRtl\image\flags\sg.png" />
+    <Content Include="ContentRtl\image\flags\sh.png" />
+    <Content Include="ContentRtl\image\flags\si.png" />
+    <Content Include="ContentRtl\image\flags\sk.png" />
+    <Content Include="ContentRtl\image\flags\sl.png" />
+    <Content Include="ContentRtl\image\flags\sm.png" />
+    <Content Include="ContentRtl\image\flags\sn.png" />
+    <Content Include="ContentRtl\image\flags\so.png" />
+    <Content Include="ContentRtl\image\flags\sr.png" />
+    <Content Include="ContentRtl\image\flags\st.png" />
+    <Content Include="ContentRtl\image\flags\sv.png" />
+    <Content Include="ContentRtl\image\flags\sy.png" />
+    <Content Include="ContentRtl\image\flags\sz.png" />
+    <Content Include="ContentRtl\image\flags\tc.png" />
+    <Content Include="ContentRtl\image\flags\td.png" />
+    <Content Include="ContentRtl\image\flags\tf.png" />
+    <Content Include="ContentRtl\image\flags\tg.png" />
+    <Content Include="ContentRtl\image\flags\th.png" />
+    <Content Include="ContentRtl\image\flags\tj.png" />
+    <Content Include="ContentRtl\image\flags\tk.png" />
+    <Content Include="ContentRtl\image\flags\tl.png" />
+    <Content Include="ContentRtl\image\flags\tm.png" />
+    <Content Include="ContentRtl\image\flags\tn.png" />
+    <Content Include="ContentRtl\image\flags\to.png" />
+    <Content Include="ContentRtl\image\flags\tr.png" />
+    <Content Include="ContentRtl\image\flags\tt.png" />
+    <Content Include="ContentRtl\image\flags\tv.png" />
+    <Content Include="ContentRtl\image\flags\tw.png" />
+    <Content Include="ContentRtl\image\flags\tz.png" />
+    <Content Include="ContentRtl\image\flags\ua.png" />
+    <Content Include="ContentRtl\image\flags\ug.png" />
+    <Content Include="ContentRtl\image\flags\um.png" />
+    <Content Include="ContentRtl\image\flags\us.png" />
+    <Content Include="ContentRtl\image\flags\uy.png" />
+    <Content Include="ContentRtl\image\flags\uz.png" />
+    <Content Include="ContentRtl\image\flags\va.png" />
+    <Content Include="ContentRtl\image\flags\vc.png" />
+    <Content Include="ContentRtl\image\flags\ve.png" />
+    <Content Include="ContentRtl\image\flags\vg.png" />
+    <Content Include="ContentRtl\image\flags\vi.png" />
+    <Content Include="ContentRtl\image\flags\vn.png" />
+    <Content Include="ContentRtl\image\flags\vu.png" />
+    <Content Include="ContentRtl\image\flags\wales.png" />
+    <Content Include="ContentRtl\image\flags\wf.png" />
+    <Content Include="ContentRtl\image\flags\ws.png" />
+    <Content Include="ContentRtl\image\flags\ye.png" />
+    <Content Include="ContentRtl\image\flags\yt.png" />
+    <Content Include="ContentRtl\image\flags\za.png" />
+    <Content Include="ContentRtl\image\flags\zm.png" />
+    <Content Include="ContentRtl\image\flags\zw.png" />
+    <Content Include="ContentRtl\image\grabbing.png" />
+    <Content Include="ContentRtl\image\logo.png" />
+    <Content Include="ContentRtl\image\no_image.jpg" />
+    <Content Include="ContentRtl\image\patterns\1.png" />
+    <Content Include="ContentRtl\image\patterns\10.png" />
+    <Content Include="ContentRtl\image\patterns\11.png" />
+    <Content Include="ContentRtl\image\patterns\12.png" />
+    <Content Include="ContentRtl\image\patterns\13.png" />
+    <Content Include="ContentRtl\image\patterns\14.png" />
+    <Content Include="ContentRtl\image\patterns\15.png" />
+    <Content Include="ContentRtl\image\patterns\16.png" />
+    <Content Include="ContentRtl\image\patterns\17.png" />
+    <Content Include="ContentRtl\image\patterns\18.png" />
+    <Content Include="ContentRtl\image\patterns\19.png" />
+    <Content Include="ContentRtl\image\patterns\2.png" />
+    <Content Include="ContentRtl\image\patterns\20.png" />
+    <Content Include="ContentRtl\image\patterns\21.png" />
+    <Content Include="ContentRtl\image\patterns\22.png" />
+    <Content Include="ContentRtl\image\patterns\23.png" />
+    <Content Include="ContentRtl\image\patterns\24.png" />
+    <Content Include="ContentRtl\image\patterns\25.png" />
+    <Content Include="ContentRtl\image\patterns\26.png" />
+    <Content Include="ContentRtl\image\patterns\27.png" />
+    <Content Include="ContentRtl\image\patterns\28.png" />
+    <Content Include="ContentRtl\image\patterns\29.png" />
+    <Content Include="ContentRtl\image\patterns\3.png" />
+    <Content Include="ContentRtl\image\patterns\30.png" />
+    <Content Include="ContentRtl\image\patterns\31.png" />
+    <Content Include="ContentRtl\image\patterns\32.png" />
+    <Content Include="ContentRtl\image\patterns\33.png" />
+    <Content Include="ContentRtl\image\patterns\34.png" />
+    <Content Include="ContentRtl\image\patterns\35.png" />
+    <Content Include="ContentRtl\image\patterns\36.png" />
+    <Content Include="ContentRtl\image\patterns\37.png" />
+    <Content Include="ContentRtl\image\patterns\38.png" />
+    <Content Include="ContentRtl\image\patterns\39.png" />
+    <Content Include="ContentRtl\image\patterns\4.png" />
+    <Content Include="ContentRtl\image\patterns\40.png" />
+    <Content Include="ContentRtl\image\patterns\41.png" />
+    <Content Include="ContentRtl\image\patterns\42.png" />
+    <Content Include="ContentRtl\image\patterns\43.png" />
+    <Content Include="ContentRtl\image\patterns\44.png" />
+    <Content Include="ContentRtl\image\patterns\45.png" />
+    <Content Include="ContentRtl\image\patterns\46.png" />
+    <Content Include="ContentRtl\image\patterns\47.png" />
+    <Content Include="ContentRtl\image\patterns\48.png" />
+    <Content Include="ContentRtl\image\patterns\49.png" />
+    <Content Include="ContentRtl\image\patterns\5.png" />
+    <Content Include="ContentRtl\image\patterns\50.png" />
+    <Content Include="ContentRtl\image\patterns\51.png" />
+    <Content Include="ContentRtl\image\patterns\52.png" />
+    <Content Include="ContentRtl\image\patterns\53.png" />
+    <Content Include="ContentRtl\image\patterns\6.png" />
+    <Content Include="ContentRtl\image\patterns\7.png" />
+    <Content Include="ContentRtl\image\patterns\8.png" />
+    <Content Include="ContentRtl\image\patterns\9.png" />
+    <Content Include="ContentRtl\image\payment\payment_2checkout.png" />
+    <Content Include="ContentRtl\image\payment\payment_american.png" />
+    <Content Include="ContentRtl\image\payment\payment_cirrus.png" />
+    <Content Include="ContentRtl\image\payment\payment_delta.png" />
+    <Content Include="ContentRtl\image\payment\payment_direct.png" />
+    <Content Include="ContentRtl\image\payment\payment_discover.png" />
+    <Content Include="ContentRtl\image\payment\payment_ebay.png" />
+    <Content Include="ContentRtl\image\payment\payment_google.png" />
+    <Content Include="ContentRtl\image\payment\payment_maestro.png" />
+    <Content Include="ContentRtl\image\payment\payment_mastercard.png" />
+    <Content Include="ContentRtl\image\payment\payment_moneybookers.png" />
+    <Content Include="ContentRtl\image\payment\payment_paypal.png" />
+    <Content Include="ContentRtl\image\payment\payment_sagepay.png" />
+    <Content Include="ContentRtl\image\payment\payment_solo.png" />
+    <Content Include="ContentRtl\image\payment\payment_switch.png" />
+    <Content Include="ContentRtl\image\payment\payment_visa.png" />
+    <Content Include="ContentRtl\image\payment\payment_western_union.png" />
+    <Content Include="ContentRtl\image\plus.png" />
+    <Content Include="ContentRtl\image\product\apple_cinema_30-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\apple_cinema_30-50x50.jpg" />
+    <Content Include="ContentRtl\image\product\apple_logo-100x100.jpg" />
+    <Content Include="ContentRtl\image\product\apple_logo-60x60.jpg" />
+    <Content Include="ContentRtl\image\product\canon_eos_5d_1-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\canon_logo-100x100.jpg" />
+    <Content Include="ContentRtl\image\product\canon_logo-60x60.jpg" />
+    <Content Include="ContentRtl\image\product\FinePix-Long-Zoom-Camera-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\FinePix-Long-Zoom-Camera-50x50.jpg" />
+    <Content Include="ContentRtl\image\product\hp_2-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\hp_3-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\hp_logo-60x60.jpg" />
+    <Content Include="ContentRtl\image\product\htc_logo-60x60.jpg" />
+    <Content Include="ContentRtl\image\product\iphone_1-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\iphone_1-50x50.jpg" />
+    <Content Include="ContentRtl\image\product\iphone_6-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\iphone_6-50x50.jpg" />
+    <Content Include="ContentRtl\image\product\ipod_classic_1-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\ipod_nano_1-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\ipod_shuffle_1-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\ipod_touch_1-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_1-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_1-50x50.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_2-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_2-50x50.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_3-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_3-50x50.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_4-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_4-50x50.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_5-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_5-50x50.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_air_1-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_air_1-350x350.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_air_1-500x500.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_air_1-50x50.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_air_1-66x66.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_air_1-90x90.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_air_2-350x350.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_air_2-500x500.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_air_2-66x66.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_air_3-350x350.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_air_3-500x500.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_air_3-66x66.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_air_4-350x350.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_air_4-500x500.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_air_4-66x66.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_pro_1-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_pro_1-50x50.jpg" />
+    <Content Include="ContentRtl\image\product\macbook_pro_1-90x90.jpg" />
+    <Content Include="ContentRtl\image\product\nikon_d300_1-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\nikon_d300_1-50x50.jpg" />
+    <Content Include="ContentRtl\image\product\nikon_d300_4-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\nikon_d300_4-50x50.jpg" />
+    <Content Include="ContentRtl\image\product\nikon_d300_5-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\nikon_d300_5-50x50.jpg" />
+    <Content Include="ContentRtl\image\product\palm_logo-60x60.jpg" />
+    <Content Include="ContentRtl\image\product\palm_treo_pro_1-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\samsung_tab_1-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\samsung_tab_1-50x50.jpg" />
+    <Content Include="ContentRtl\image\product\samsung_tab_1-90x90.jpg" />
+    <Content Include="ContentRtl\image\product\sony_logo-60x60.jpg" />
+    <Content Include="ContentRtl\image\product\sony_vaio_1-200x200.jpg" />
+    <Content Include="ContentRtl\image\product\sony_vaio_1-50x50.jpg" />
+    <Content Include="ContentRtl\image\product\store_location-275x180.jpg" />
+    <Content Include="ContentRtl\image\progress.gif" />
+    <Content Include="ContentRtl\image\slider\AMC.jpg" />
+    <Content Include="ContentRtl\image\slider\amm.jpg" />
+    <Content Include="ContentRtl\image\slider\Cogs.jpg" />
+    <Content Include="ContentRtl\image\slider\optimum.jpg" />
+    <Content Include="ContentRtl\image\slider\Quick.jpg" />
+    <Content Include="ContentRtl\image\socialicons\bebo.png" />
+    <Content Include="ContentRtl\image\socialicons\blogger.png" />
+    <Content Include="ContentRtl\image\socialicons\delicious.png" />
+    <Content Include="ContentRtl\image\socialicons\digg.png" />
+    <Content Include="ContentRtl\image\socialicons\dopplr.png" />
+    <Content Include="ContentRtl\image\socialicons\ember.png" />
+    <Content Include="ContentRtl\image\socialicons\evernote.png" />
+    <Content Include="ContentRtl\image\socialicons\facebook.png" />
+    <Content Include="ContentRtl\image\socialicons\flickr.png" />
+    <Content Include="ContentRtl\image\socialicons\forrst.png" />
+    <Content Include="ContentRtl\image\socialicons\friendfeed.png" />
+    <Content Include="ContentRtl\image\socialicons\googletalk.png" />
+    <Content Include="ContentRtl\image\socialicons\google_plus.png" />
+    <Content Include="ContentRtl\image\socialicons\grooveshark.png" />
+    <Content Include="ContentRtl\image\socialicons\instagram.png" />
+    <Content Include="ContentRtl\image\socialicons\lastfm.png" />
+    <Content Include="ContentRtl\image\socialicons\linkedin.png" />
+    <Content Include="ContentRtl\image\socialicons\mixx.png" />
+    <Content Include="ContentRtl\image\socialicons\myspace.png" />
+    <Content Include="ContentRtl\image\socialicons\newsvine.png" />
+    <Content Include="ContentRtl\image\socialicons\openid.png" />
+    <Content Include="ContentRtl\image\socialicons\pandora.png" />
+    <Content Include="ContentRtl\image\socialicons\picasa.png" />
+    <Content Include="ContentRtl\image\socialicons\pinterest.png" />
+    <Content Include="ContentRtl\image\socialicons\posterous.png" />
+    <Content Include="ContentRtl\image\socialicons\readernaut.png" />
+    <Content Include="ContentRtl\image\socialicons\reddit.png" />
+    <Content Include="ContentRtl\image\socialicons\rss.png" />
+    <Content Include="ContentRtl\image\socialicons\sharethis.png" />
+    <Content Include="ContentRtl\image\socialicons\skype.png" />
+    <Content Include="ContentRtl\image\socialicons\spotify.png" />
+    <Content Include="ContentRtl\image\socialicons\stumbleupon.png" />
+    <Content Include="ContentRtl\image\socialicons\technorati.png" />
+    <Content Include="ContentRtl\image\socialicons\tumblr.png" />
+    <Content Include="ContentRtl\image\socialicons\twitter.png" />
+    <Content Include="ContentRtl\image\socialicons\viadeo.png" />
+    <Content Include="ContentRtl\image\socialicons\viddler.png" />
+    <Content Include="ContentRtl\image\socialicons\vimeo.png" />
+    <Content Include="ContentRtl\image\socialicons\virb.png" />
+    <Content Include="ContentRtl\image\socialicons\vk.png" />
+    <Content Include="ContentRtl\image\socialicons\xing.png" />
+    <Content Include="ContentRtl\image\socialicons\yahoobuzz.png" />
+    <Content Include="ContentRtl\image\socialicons\yelp.png" />
+    <Content Include="ContentRtl\image\socialicons\youtube.png" />
+    <Content Include="ContentRtl\js\bootstrap\css\bootstrap-flipped.css" />
+    <Content Include="ContentRtl\js\bootstrap\css\bootstrap-flipped.min.css" />
+    <Content Include="ContentRtl\js\bootstrap\css\bootstrap-rtl.css" />
+    <Content Include="ContentRtl\js\bootstrap\css\bootstrap-rtl.min.css" />
+    <Content Include="ContentRtl\js\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="ContentRtl\js\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="ContentRtl\js\bootstrap\css\bootstrap.css" />
+    <Content Include="ContentRtl\js\bootstrap\css\bootstrap.min.css" />
+    <Content Include="ContentRtl\js\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="ContentRtl\js\bootstrap\js\bootstrap.js" />
+    <Content Include="ContentRtl\js\bootstrap\js\bootstrap.min.js" />
+    <Content Include="ContentRtl\js\custom.js" />
+    <Content Include="ContentRtl\js\jquery-2.1.1.min.js" />
+    <Content Include="ContentRtl\js\jquery.dcjqaccordion.js" />
+    <Content Include="ContentRtl\js\jquery.dcjqaccordion.min.js" />
+    <Content Include="ContentRtl\js\jquery.easing-1.3.min.js" />
+    <Content Include="ContentRtl\js\jquery.elevateZoom-3.0.8.min.js" />
+    <Content Include="ContentRtl\js\jquery.elevatezoom.js" />
+    <Content Include="ContentRtl\js\owl.carousel.js" />
+    <Content Include="ContentRtl\js\owl.carousel.min.js" />
+    <Content Include="ContentRtl\js\swipebox\lib\ios-orientationchange-fix.js" />
+    <Content Include="ContentRtl\js\swipebox\lib\jquery-2.1.0.min.js" />
+    <Content Include="ContentRtl\js\swipebox\src\css\swipebox.css" />
+    <Content Include="ContentRtl\js\swipebox\src\css\swipebox.min.css" />
+    <Content Include="ContentRtl\js\swipebox\src\img\icons.png" />
+    <Content Include="ContentRtl\js\swipebox\src\img\icons.svg" />
+    <Content Include="ContentRtl\js\swipebox\src\img\loader.gif" />
+    <Content Include="ContentRtl\js\swipebox\src\js\jquery.swipebox.js" />
+    <Content Include="ContentRtl\js\swipebox\src\js\jquery.swipebox.min.js" />
+    <Content Include="ContentRtl\revolution\assets\coloredbg.png" />
+    <Content Include="ContentRtl\revolution\assets\gridtile.png" />
+    <Content Include="ContentRtl\revolution\assets\gridtile_3x3.png" />
+    <Content Include="ContentRtl\revolution\assets\gridtile_3x3_white.png" />
+    <Content Include="ContentRtl\revolution\assets\gridtile_white.png" />
+    <Content Include="ContentRtl\revolution\assets\loader.gif" />
+    <Content Include="ContentRtl\revolution\assets\sources\fb.png" />
+    <Content Include="ContentRtl\revolution\assets\sources\fr.png" />
+    <Content Include="ContentRtl\revolution\assets\sources\ig.png" />
+    <Content Include="ContentRtl\revolution\assets\sources\post.png" />
+    <Content Include="ContentRtl\revolution\assets\sources\revolution_slide1.png" />
+    <Content Include="ContentRtl\revolution\assets\sources\revolution_slide2.png" />
+    <Content Include="ContentRtl\revolution\assets\sources\tw.png" />
+    <Content Include="ContentRtl\revolution\assets\sources\vm.png" />
+    <Content Include="ContentRtl\revolution\assets\sources\wc.png" />
+    <Content Include="ContentRtl\revolution\assets\sources\yt.png" />
+    <Content Include="ContentRtl\revolution\css\closedhand.cur" />
+    <Content Include="ContentRtl\revolution\css\index.php" />
+    <Content Include="ContentRtl\revolution\css\layers.css" />
+    <Content Include="ContentRtl\revolution\css\navigation-skins\ares.css" />
+    <Content Include="ContentRtl\revolution\css\navigation-skins\custom.css" />
+    <Content Include="ContentRtl\revolution\css\navigation-skins\dione.css" />
+    <Content Include="ContentRtl\revolution\css\navigation-skins\erinyen.css" />
+    <Content Include="ContentRtl\revolution\css\navigation-skins\gyges.css" />
+    <Content Include="ContentRtl\revolution\css\navigation-skins\hades.css" />
+    <Content Include="ContentRtl\revolution\css\navigation-skins\hebe.css" />
+    <Content Include="ContentRtl\revolution\css\navigation-skins\hephaistos.css" />
+    <Content Include="ContentRtl\revolution\css\navigation-skins\hermes.css" />
+    <Content Include="ContentRtl\revolution\css\navigation-skins\hesperiden.css" />
+    <Content Include="ContentRtl\revolution\css\navigation-skins\metis.css" />
+    <Content Include="ContentRtl\revolution\css\navigation-skins\persephone.css" />
+    <Content Include="ContentRtl\revolution\css\navigation-skins\uranus.css" />
+    <Content Include="ContentRtl\revolution\css\navigation-skins\zeus.css" />
+    <Content Include="ContentRtl\revolution\css\navigation.css" />
+    <Content Include="ContentRtl\revolution\css\openhand.cur" />
+    <Content Include="ContentRtl\revolution\css\settings.css" />
+    <Content Include="ContentRtl\revolution\fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="ContentRtl\revolution\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="ContentRtl\revolution\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="ContentRtl\revolution\fonts\font-awesome\index.php" />
+    <Content Include="ContentRtl\revolution\fonts\index.php" />
+    <Content Include="ContentRtl\revolution\fonts\pe-icon-7-stroke\css\helper.css" />
+    <Content Include="ContentRtl\revolution\fonts\pe-icon-7-stroke\css\index.php" />
+    <Content Include="ContentRtl\revolution\fonts\pe-icon-7-stroke\css\pe-icon-7-stroke.css" />
+    <Content Include="ContentRtl\revolution\fonts\pe-icon-7-stroke\fonts\index.php" />
+    <Content Include="ContentRtl\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="ContentRtl\revolution\fonts\pe-icon-7-stroke\index.php" />
+    <Content Include="ContentRtl\revolution\fonts\revicons\index.php" />
+    <Content Include="ContentRtl\revolution\fonts\revicons\revicons.svg" />
+    <Content Include="ContentRtl\revolution\index.php" />
+    <Content Include="ContentRtl\revolution\js\extensions\index.php" />
+    <Content Include="ContentRtl\revolution\js\extensions\revolution.extension.actions.min.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\revolution.extension.carousel.min.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\revolution.extension.kenburn.min.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\revolution.extension.layeranimation.min.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\revolution.extension.migration.min.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\revolution.extension.navigation.min.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\revolution.extension.parallax.min.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\revolution.extension.slideanims.min.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\revolution.extension.video.min.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\source\index.php" />
+    <Content Include="ContentRtl\revolution\js\extensions\source\revolution.extension.actions.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\source\revolution.extension.carousel.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\source\revolution.extension.kenburn.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\source\revolution.extension.layeranimation.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\source\revolution.extension.migration.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\source\revolution.extension.navigation.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\source\revolution.extension.parallax.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\source\revolution.extension.slideanims.js" />
+    <Content Include="ContentRtl\revolution\js\extensions\source\revolution.extension.video.js" />
+    <Content Include="ContentRtl\revolution\js\index.php" />
+    <Content Include="ContentRtl\revolution\js\jquery.themepunch.enablelog.js" />
+    <Content Include="ContentRtl\revolution\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="ContentRtl\revolution\js\jquery.themepunch.tools.min.js" />
+    <Content Include="ContentRtl\revolution\js\source\index.php" />
+    <Content Include="ContentRtl\revolution\js\source\jquery.themepunch.enablelog.js" />
+    <Content Include="ContentRtl\revolution\js\source\jquery.themepunch.revolution.js" />
+    <Content Include="ContentRtl\revolution\js\source\jquery.themepunch.tools.min.js" />
+    <Content Include="ContentRtl\revolution\php\facebook\class-facebook.php" />
+    <Content Include="ContentRtl\revolution\php\flickr\class-flickr.php" />
+    <Content Include="ContentRtl\revolution\php\instagram\class-instagram.php" />
+    <Content Include="ContentRtl\revolution\php\twitter\class-twitter.php" />
+    <Content Include="ContentRtl\revolution\php\twitter\connection\Application.php" />
+    <Content Include="ContentRtl\revolution\php\twitter\connection\ConnectionAbstract.php" />
+    <Content Include="ContentRtl\revolution\php\twitter\connection\User.php" />
+    <Content Include="ContentRtl\revolution\php\twitter\RestApi.php" />
+    <Content Include="ContentRtl\revolution\php\vimeo\class-vimeo.php" />
+    <Content Include="ContentRtl\revolution\php\youtube\class-youtube.php" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.css" />
+    <Content Include="Content\TableStyle\TableStyle.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\autoNumeric\autoNumeric-min.js" />
+    <Content Include="Scripts\autoNumeric\autoNumeric.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ContentRtl\css\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="ContentRtl\css\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="ContentRtl\css\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="ContentRtl\css\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="ContentRtl\css\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="ContentRtl\css\font-awesome\less\animated.less" />
+    <Content Include="ContentRtl\css\font-awesome\less\bordered-pulled.less" />
+    <Content Include="ContentRtl\css\font-awesome\less\core.less" />
+    <Content Include="ContentRtl\css\font-awesome\less\fixed-width.less" />
+    <Content Include="ContentRtl\css\font-awesome\less\font-awesome.less" />
+    <Content Include="ContentRtl\css\font-awesome\less\icons.less" />
+    <Content Include="ContentRtl\css\font-awesome\less\larger.less" />
+    <Content Include="ContentRtl\css\font-awesome\less\list.less" />
+    <Content Include="ContentRtl\css\font-awesome\less\mixins.less" />
+    <Content Include="ContentRtl\css\font-awesome\less\path.less" />
+    <Content Include="ContentRtl\css\font-awesome\less\rotated-flipped.less" />
+    <Content Include="ContentRtl\css\font-awesome\less\stacked.less" />
+    <Content Include="ContentRtl\css\font-awesome\less\variables.less" />
+    <Content Include="ContentRtl\css\font-awesome\scss\font-awesome.scss" />
+    <Content Include="ContentRtl\css\font-awesome\scss\_animated.scss" />
+    <Content Include="ContentRtl\css\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="ContentRtl\css\font-awesome\scss\_core.scss" />
+    <Content Include="ContentRtl\css\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="ContentRtl\css\font-awesome\scss\_icons.scss" />
+    <Content Include="ContentRtl\css\font-awesome\scss\_larger.scss" />
+    <Content Include="ContentRtl\css\font-awesome\scss\_list.scss" />
+    <Content Include="ContentRtl\css\font-awesome\scss\_mixins.scss" />
+    <Content Include="ContentRtl\css\font-awesome\scss\_path.scss" />
+    <Content Include="ContentRtl\css\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="ContentRtl\css\font-awesome\scss\_stacked.scss" />
+    <Content Include="ContentRtl\css\font-awesome\scss\_variables.scss" />
+    <Content Include="ContentRtl\css\persian-fonts\BKoodakBold.eot" />
+    <Content Include="ContentRtl\css\persian-fonts\BKoodakBold.ttf" />
+    <Content Include="ContentRtl\css\persian-fonts\BKoodakBold.woff" />
+    <Content Include="ContentRtl\css\persian-fonts\WYekan.eot" />
+    <Content Include="ContentRtl\css\persian-fonts\WYekan.ttf" />
+    <Content Include="ContentRtl\css\persian-fonts\WYekan.woff" />
+    <Content Include="ContentRtl\js\bootstrap\css\bootstrap-flipped.css.map" />
+    <Content Include="ContentRtl\js\bootstrap\css\bootstrap-rtl.css.map" />
+    <Content Include="ContentRtl\js\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="ContentRtl\js\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="ContentRtl\js\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="ContentRtl\js\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="ContentRtl\revolution\.DS_Store" />
+    <Content Include="ContentRtl\revolution\assets\.DS_Store" />
+    <Content Include="ContentRtl\revolution\css\.DS_Store" />
+    <Content Include="ContentRtl\revolution\fonts\.DS_Store" />
+    <Content Include="ContentRtl\revolution\fonts\font-awesome\.DS_Store" />
+    <Content Include="ContentRtl\revolution\fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="ContentRtl\revolution\fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="ContentRtl\revolution\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="ContentRtl\revolution\fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="ContentRtl\revolution\fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="ContentRtl\revolution\fonts\pe-icon-7-stroke\.DS_Store" />
+    <Content Include="ContentRtl\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="ContentRtl\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="ContentRtl\revolution\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="ContentRtl\revolution\fonts\revicons\revicons.eot" />
+    <Content Include="ContentRtl\revolution\fonts\revicons\revicons.ttf" />
+    <Content Include="ContentRtl\revolution\fonts\revicons\revicons.woff" />
+    <Content Include="ContentRtl\revolution\info.cfg" />
+    <Content Include="ContentRtl\revolution\php\.DS_Store" />
+    <Content Include="ContentRtl\revolution\php\twitter\.DS_Store" />
+    <Content Include="Areas\AccountAdmin\Views\web.config" />
+    <Content Include="Areas\AccountAdmin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawCategories\Create.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawCategories\Delete.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawCategories\Details.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawCategories\Edit.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawCategories\Index.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawSubCategories\Create.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawSubCategories\Delete.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawSubCategories\Details.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawSubCategories\Edit.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawSubCategories\Index.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawLedgers\Create.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawLedgers\Delete.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawLedgers\Details.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawLedgers\Edit.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawLedgers\Index.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawSubLedgers\Create.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawSubLedgers\Delete.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawSubLedgers\Details.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawSubLedgers\Edit.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawSubLedgers\Index.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawDetailes\Create.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawDetailes\Delete.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawDetailes\Details.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawDetailes\Edit.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawDetailes\Index.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\Journals\Create.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\Journals\Delete.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\Journals\Details.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\Journals\Edit.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\Journals\Index.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\TradeEntries\Index.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\TradeEntries\ImportexcelAfterView.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\TradeEntries\ViewExcel.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\TradeEntries\Importexcel.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\Reports\TestBanlancByInvestor.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\RawLedgers\CreateFromExcell.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\Journals\EditV.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\Reports\TestBanlanc.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\Reports\TestBanlancInSubLedger.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\Reports\TestBanlancInSubLedgerByInvestor.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\Reports\TestBanlancInDetailLevel.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\Reports\TestBanlancInDetailLevelByInvestor.cshtml" />
+    <Content Include="Areas\SecurityHistory\Views\web.config" />
+    <Content Include="Areas\SecurityHistory\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\SecurityHistory\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\SecurityHistory\Views\Crude\Index.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\Reports\InvestmentsInDetailLevelByInvestor.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\TradeEntries\UpdateValuationEntries.cshtml" />
+    <Content Include="Areas\AccountAdmin\Views\Reports\GetPerformance.cshtml" />
+    <Content Include="Files\Excel\TradesExcell.xlsx" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MdBootstrapPersianDateTimePicker\jalaali.js" />
+    <Content Include="Scripts\MdBootstrapPersianDateTimePicker\jquery.Bootstrap-PersianDateTimePicker.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\numeral\numeral.js" />
+    <Content Include="Scripts\numeral\numeral.min.js" />
+    <Content Include="Scripts\ThousandSeperator\easy-number-separator.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LayoutV2.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\InvestorRegister\RegisterInvestor.cshtml" />
+    <Content Include="Views\InvestorRegister\Index.cshtml" />
+    <Content Include="Views\InvestorRegister\InvestorDetails.cshtml" />
+    <Content Include="Views\InvestorRegister\EditInvestorProfile.cshtml" />
+    <Content Include="Views\InvestorRegister\Delete.cshtml" />
+    <Content Include="Views\InvestorOSI\CreateOS.cshtml" />
+    <Content Include="Views\InvestorOSI\DeleteOS.cshtml" />
+    <Content Include="Views\InvestorOSI\DetailsOS.cshtml" />
+    <Content Include="Views\InvestorOSI\EditOS.cshtml" />
+    <Content Include="Views\InvestorOSI\IndexOS.cshtml" />
+    <Content Include="Views\InvestorOSI\CreateIc.cshtml" />
+    <Content Include="Views\InvestorOSI\DeleteIc.cshtml" />
+    <Content Include="Views\InvestorOSI\DetailsIc.cshtml" />
+    <Content Include="Views\InvestorOSI\EditIc.cshtml" />
+    <Content Include="Views\InvestorOSI\IndexIc.cshtml" />
+    <Content Include="Views\Account\DisplayEmail.cshtml" />
+    <Content Include="Views\RolesAdmin\Create.cshtml" />
+    <Content Include="Views\RolesAdmin\Delete.cshtml" />
+    <Content Include="Views\RolesAdmin\Details.cshtml" />
+    <Content Include="Views\RolesAdmin\Edit.cshtml" />
+    <Content Include="Views\RolesAdmin\Index.cshtml" />
+    <Content Include="Views\UsersAdmin\Create.cshtml" />
+    <Content Include="Views\UsersAdmin\Delete.cshtml" />
+    <Content Include="Views\UsersAdmin\Details.cshtml" />
+    <Content Include="Views\UsersAdmin\Edit.cshtml" />
+    <Content Include="Views\UsersAdmin\Index.cshtml" />
+    <Content Include="Views\Account\WaitingForEmailConfirmation.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\AccountAdmin\Data\" />
+    <Folder Include="Areas\SecurityHistory\Data\" />
+    <Folder Include="Models\ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DLLCore\DLLCore.csproj">
+      <Project>{247e0e87-6a6e-438f-9e11-146e5c47f9df}</Project>
+      <Name>DLLCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54000</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44347/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Accord.3.8.0\build\Accord.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Accord.3.8.0\build\Accord.targets'))" />
+  </Target>
+  <Import Project="..\packages\Accord.3.8.0\build\Accord.targets" Condition="Exists('..\packages\Accord.3.8.0\build\Accord.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<DLLCore.DBContext.Entities.Accounting.Entry.Journal>
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+
+<h2>جزئیات سند</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            نام سرمایه‌گذار
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntryNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rawDetaile.DetaileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntryDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntryDebit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntryCredit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntryBuySellVolume)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.investorProfileInJournal.FirstName) <span> </span> @Html.DisplayFor(modelItem => item.investorProfileInJournal.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rawDetaile.DetaileName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDebit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryCredit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryBuySellVolume)
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.Select(a=>a.EntryNo).FirstOrDefault() }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("بازگشت به فهرست", "Index",null, new { @class = "btn btn-danger" })
+</p>

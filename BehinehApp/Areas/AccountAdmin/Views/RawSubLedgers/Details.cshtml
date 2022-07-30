@@ -1,0 +1,67 @@
+﻿@model DLLCore.DBContext.Entities.Accounting.RawAccounts.RawSubLedger
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+
+<h2>جزئیات حساب معین</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            کد گروه
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rawLedgers.RawSubCategories.RawCategoriesInSub.RawCategoryCode)
+        </dd>
+        <dt>
+            کد زیر گروه
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rawLedgers.RawSubCategories.SubCategoryCode)
+        </dd>
+        <dt>
+            کد دفتر کل
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rawLedgers.RawLedgerCode)
+        </dd>
+        <dt>
+            کد حساب معین
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubLedgerCode)
+        </dd>
+        <dt>
+            نام گروه
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rawLedgers.RawSubCategories.RawCategoriesInSub.RawCategoryName)
+        </dd>
+        <dt>
+            نام زیر گروه
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rawLedgers.RawSubCategories.SubCategoryName)
+        </dd>
+        <dt>
+            نام دفتر کل
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rawLedgers.RawLedgerName)
+        </dd>
+        <dt>
+            نام حساب معین
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubLedgerName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.SubLedgerID }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("بازگشت به فهرست", "Index", null, new { @class = "btn btn-danger" })
+</p>

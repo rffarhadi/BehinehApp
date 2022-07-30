@@ -1,0 +1,77 @@
+﻿@model IEnumerable<DLLCore.ViewModels.InvestorInfrencesConclutionViewModel>
+
+@{
+    ViewBag.Title = "فهرست استنباط‌ها و نتیجه‌گیری‌ها";
+}
+<hr />
+<p>
+    @Html.ActionLink("تعریف استنباط و نتیجه‌گیری", "CreateIc", null, new { @class = "btn btn-success" })
+</p>
+
+<h2>فهرست اهداف و محدودیت‌ها</h2>
+<table class="table table-hover">
+    <tr>
+        <th class="col-lg-1">
+            @Html.DisplayNameFor(m => m.InvestProfile.FirstName)
+        </th>
+        <th class="col-lg-1">
+            @Html.DisplayNameFor(m => m.InvestProfile.LastName)
+        </th>
+        <th class="col-lg-4">
+            @Html.DisplayNameFor(model => model.Inference)
+        </th>
+        <th class="col-lg-4">
+            @Html.DisplayNameFor(model => model.FinalConclution)
+        </th>
+        <th class="col-lg-2">عملیات</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="col-lg-1">
+                @Html.DisplayFor(modelItem => item.InvestProfile.FirstName)
+            </td>
+            <td class="col-lg-1">
+                @Html.DisplayFor(modelItem => item.InvestProfile.LastName)
+            </td>
+            <td class="col-lg-4">
+                @Html.DisplayFor(modelItem => item.Inference)
+            </td>
+            <td class="col-lg-4">
+                @Html.DisplayFor(modelItem => item.FinalConclution)
+            </td>
+            <td class="col-lg-2">
+                @Html.ActionLink("ویرایش", "EditIc", new { id = item.InfrencesConclutionID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("جزئیات", "DetailsIc", new { id = item.InfrencesConclutionID }, new { @class = "btn btn-info" })
+                @Html.ActionLink("حذف", "DeleteIc", new { id = item.InfrencesConclutionID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+@{
+    if (ViewBag.Smessage != null)
+    {
+        <h1 id="message" style="color:green;font-size:medium">
+            @ViewBag.Smessage
+        </h1>
+    }
+    if (ViewBag.Emessage != null)
+    {
+        <h1 id="message" style="color:orangered;font-size:medium">
+            @ViewBag.Emessage
+        </h1>
+    }
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $("#message").fadeIn(6000);
+            $("#message").fadeOut(6000);
+        });
+    </script>
+}

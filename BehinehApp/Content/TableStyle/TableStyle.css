@@ -1,0 +1,10 @@
+﻿table {
+    margin: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#tableDiv {
+    height: 300px;
+    overflow: scroll;
+}

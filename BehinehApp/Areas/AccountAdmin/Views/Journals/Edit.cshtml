@@ -1,0 +1,159 @@
+﻿@model IEnumerable<DLLCore.ViewModels.NormalEntryViewModel>
+
+@{
+    ViewBag.Title = "ویرایش";
+}
+
+<h2>ویرایش</h2>
+
+
+@using (Html.BeginForm("Edit","Journals",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="col-lg-3">
+        <div>
+            <input type="submit" onclick="conditionsCheck(event)" value="ویرایش سند" class="btn btn-success" />
+        </div>
+        <div>
+            <labl>تاریخ سند</labl>
+            <input type="text" name="EntryDate" class="form-control text-box single-line" data-val="true" data-val-required="لطفاً تاریخ سند را وارد کنید" id="EntryDate" data-MdDateTimePicker="true" data-trigger="click" data-targetselector="#EntryDate" data-groupid="group1" data-fromdate="true" data-enabletimepicker="true" data-placement="left" value="@Model.Select(a=>a.EntryDate).FirstOrDefault()" />
+        </div>
+        <div>
+            <label>نام و کد بورسی سرمایه‌گذار</label>
+            @Html.DropDownList("InvestorID", null, htmlAttributes: new { @class = "form-control" })
+        </div>
+        <div>
+            @Html.ActionLink("بازگشت به لیست اسناد", "Index", null, new { @class = "btn btn-danger" })
+        </div>
+        <br />
+    </div>
+    <div>
+        <div class="col-lg-9">
+            <table id="myTable">
+                <thead>
+                    <tr>
+                        <th class="col-lg-3">
+                            نام حساب
+                        </th>
+                        <th class="col-lg-4">
+                            شرح سند
+                        </th>
+                        <th class="col-lg-2">
+                            بدهکار
+                        </th>
+                        <th class="col-lg-2">
+                            بستانکار
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="Mytbody">
+                    @foreach (var item in Model)
+                    {
+                        @Html.HiddenFor(modelItem => item.EntryNo)
+
+                        <tr id="Mytr">
+                            @*<td class="col-lg-3">
+                                    @Html.DropDownList("DetaileID", null, htmlAttributes: new { @class = "form-control" })
+                                </td>*@
+                            <td class="col-lg-3">
+                                @Html.DropDownListFor(modelItem => item.DetaileID, Model.Where(a => a.DetaileID == item.DetaileID).Select(a => a.DetailesNames), htmlAttributes: new { @class = "form-control" })
+                            </td>
+                            <td class="col-lg-4">
+                                <textarea name="EntryDescription" id="EntryDescription" rows="2" cols="40">@item.EntryDescription</textarea>
+                            </td>
+                            <td class="col-lg-2">
+                                <input type="text" onkeyup="changeNum()" id="EntryDebit" name="EntryDebit" data-a-sign="" data-a-dec="." data-a-sep="," data-m-dec="0" value="@item.EntryDebit">
+
+                            </td>
+                            <td class="col-lg-2">
+                                <input type="text" onkeyup="changeNum()" id="EntryCredit" name="EntryCredit" data-a-sign="" data-a-dec="." data-a-sep="," data-m-dec="0" value="@item.EntryCredit">
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+@section Scripts {
+   @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/autoNumeric/autoNumeric-min.js"></script>
+    <script src="~/Scripts/numeral/numeral.min.js"></script>
+    <script>
+        window.addEventListener("load", loudIdNameFunc());
+        function loudIdNameFunc() {
+            var colnumber = document.getElementById('Mytr').childElementCount;
+            var rownumber = document.getElementById('Mytbody').rows.length;
+            for (var i = 1; i < rownumber; i++) {
+                for (var j = 0; j < colnumber; j++) {
+                    var rowoneId = document.getElementById('Mytbody').rows[0].cells[j].children[0].id;
+                    var rowoneName = document.getElementById('Mytbody').rows[0].cells[j].children[0].name;
+                    document.getElementById('Mytbody').rows[i].cells[j].children[0].id = rowoneId + i + j;
+                    document.getElementById('Mytbody').rows[i].cells[j].children[0].name = rowoneName + i + j;
+                }
+            }
+            changeNum();
+        };
+        function changeNum() {
+            jQuery(function ($) {
+                $('#EntryDebit').autoNumeric('init');
+                $('#EntryDebit12').autoNumeric('init');
+                $('#EntryDebit22').autoNumeric('init');
+                $('#EntryDebit32').autoNumeric('init');
+                $('#EntryDebit42').autoNumeric('init');
+                $('#EntryDebit52').autoNumeric('init');
+                $('#EntryDebit62').autoNumeric('init');
+                $('#EntryDebit72').autoNumeric('init');
+                $('#EntryCredit').autoNumeric('init');
+                $('#EntryCredit13').autoNumeric('init');
+                $('#EntryCredit23').autoNumeric('init');
+                $('#EntryCredit33').autoNumeric('init');
+                $('#EntryCredit43').autoNumeric('init');
+                $('#EntryCredit53').autoNumeric('init');
+                $('#EntryCredit63').autoNumeric('init');
+                $('#EntryCredit73').autoNumeric('init');
+            });
+        };
+
+        function conditionsCheck(event) {
+            colnumber = document.getElementById('Mytr').childElementCount;
+            rownumber = document.getElementById('Mytbody').rows.length;
+            var debitSum = 0;
+            var creditSum = 0;
+            for (var i = 0; i < rownumber; i++) {
+                var debit = numeral(document.getElementById('Mytbody').rows[i].cells[2].children[0].value).value();
+                var crdit = numeral(document.getElementById('Mytbody').rows[i].cells[3].children[0].value).value();
+                debitSum += debit;
+                creditSum += crdit;
+                if (debit == 0 && crdit == 0) {
+                    alert("مبالغ بدهکار و بستانکار هر سطر از سند نمی‌تواند یکسان باشد");
+                    event.preventDefault();
+                }
+                if (debit > 0 && crdit > 0) {
+                    alert("مبالغ بدهکار و بستانکار هر سطر از سند نمی‌تواند بزرگتر از صفر باشد");
+                    event.preventDefault();
+                }
+            }
+            if (debitSum != creditSum) {
+                alert("جمع ستون بدهکار و ستون بستانکار مساوی نمی‌باشد.");
+                event.preventDefault();
+            }
+
+            //var select1 = document.getElementById("DetaileID");
+            //var selectText1 = select1.options[select1.selectedIndex].text;
+            //var select2 = document.getElementById("DetaileID10");
+            //var selectText2 = select2.options[select2.selectedIndex].text;
+            //if (selectText1 == selectText2) {
+            //    alert("یک حساب برای دو سطر سند انتخاب شده است، کنترل نمایید.");
+            //    event.preventDefault();
+            //}
+        }
+
+    </script>
+}

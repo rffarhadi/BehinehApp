@@ -1,0 +1,46 @@
+﻿@model DLLCore.DBContext.Entities.Accounting.RawAccounts.RawSubCategories
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+
+<h2>جزئیات زیر گروه</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RawCategoriesInSub.RawCategoryCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RawCategoriesInSub.RawCategoryCode)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategoryCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubCategoryCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RawCategoriesInSub.RawCategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RawCategoriesInSub.RawCategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubCategoryName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.SubCategoryID }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink("بازگشت به فهرست", "Index", null, new { @class = "btn btn-danger" })
+</p>
